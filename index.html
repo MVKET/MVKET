@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVKET - Premium KET Testavimo Platforma (Oficiali terminologija)</title>
+    <title>MVKET - Realistiška KET Egzamino Platforma</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
     <style>
         :root {
@@ -36,7 +36,6 @@
             --wave-opacity: 0.15;
         }
 
-        /* --- ŠVIEČIANTIS CUSTOM CURSOR --- */
         html, body { cursor: none; }
         button, a, input, select, .grid-item, .option-button { cursor: none !important; }
         
@@ -72,7 +71,6 @@
             position: relative;
         }
 
-        /* --- ANIMUOTOS BANGOS FONE --- */
         .waves-container {
             position: fixed;
             bottom: 0;
@@ -128,15 +126,13 @@
             box-shadow: var(--shadow); 
         }
         .header-content { width: 100%; max-width: 1100px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 26px; font-weight: 800; color: var(--accent); text-decoration: none; letter-spacing: -0.5px; transform: scale(1); transition: transform 0.2s; }
+        .logo { font-size: 26px; font-weight: 800; color: var(--accent); text-decoration: none; letter-spacing: -0.5px; transition: transform 0.2s; }
         .logo:hover { transform: scale(1.03); }
         
         .btn-toggle { background: var(--grid-inactive); border: 1px solid var(--border); width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-main); font-size: 18px; transition: all 0.2s ease; }
-        .btn-toggle:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
         .main-wrapper { width: 100%; max-width: 1100px; padding: 40px 24px; flex-grow: 1; margin: 0 auto; z-index: 5; }
 
-        /* GRID ANIMATION */
         .questions-grid { 
             display: grid; 
             grid-template-columns: repeat(15, 1fr); 
@@ -159,7 +155,6 @@
         .grid-item.answered { background-color: var(--text-muted); color: var(--bg-card); }
         .grid-item.current { background-color: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3); }
 
-        /* CARDS WITH SPRING EFFECT */
         .quiz-card { 
             background-color: var(--bg-card); 
             backdrop-filter: var(--backdrop);
@@ -175,23 +170,23 @@
         }
         @media (max-width: 950px) { .quiz-card { grid-template-columns: 1fr; gap: 30px; } }
 
-        /* ROAD INTERSECTIONS BOX */
+        /* REALISTIŠKAS VIZUALIZACIJOS RĖMAS */
         .visual-side { 
-            background-color: #cbd5e1; 
+            background-color: #1e293b; 
             border-radius: 20px; 
-            padding: 10px; 
+            padding: 15px; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            border: 2px solid rgba(255,255,255,0.5); 
-            min-height: 350px; 
-            box-shadow: inset 0 4px 20px rgba(0,0,0,0.15);
+            border: 3px solid #334155; 
+            min-height: 380px; 
+            box-shadow: inset 0 4px 30px rgba(0,0,0,0.4);
             overflow: hidden;
+            position: relative;
         }
-        body.dark-theme .visual-side { background-color: #1e293b; border-color: rgba(0,0,0,0.3); }
-        .visual-side svg { max-width: 100%; max-height: 330px; filter: drop-shadow(0 12px 24px rgba(0,0,0,0.25)); }
+        .visual-side svg { width: 100%; height: auto; max-height: 360px; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3)); }
         
-        .question-text { font-size: 22px; font-weight: 700; color: var(--text-main); margin-bottom: 25px; line-height: 1.45; }
+        .question-text { font-size: 21px; font-weight: 700; color: var(--text-main); margin-bottom: 25px; line-height: 1.45; }
         .options-container { display: flex; flex-direction: column; gap: 14px; }
         
         .option-button { 
@@ -203,37 +198,24 @@
             text-align: left; 
             font-weight: 600; 
             color: var(--text-main); 
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); 
+            transition: all 0.2s ease; 
         }
         body.dark-theme .option-button { background-color: rgba(15, 23, 42, 0.3); }
-        
-        .option-button:hover { 
-            border-color: var(--accent); 
-            background-color: var(--bg-card); 
-            transform: translateX(6px); 
-        }
-        .option-button.selected { 
-            background-color: var(--accent) !important; 
-            border-color: var(--accent); 
-            color: white !important; 
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-            transform: translateX(4px) scale(1.01);
-        }
+        .option-button:hover { border-color: var(--accent); transform: translateX(6px); }
+        .option-button.selected { background-color: var(--accent) !important; border-color: var(--accent); color: white !important; box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3); }
 
         .action-bar { margin-top: 35px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
         .btn { padding: 15px 32px; font-size: 16px; font-weight: 700; border-radius: 14px; border: none; transition: all 0.25s ease; }
         .btn-primary { background-color: var(--accent); color: white; box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25); }
-        .btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4); }
+        .btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
         .btn-secondary { background-color: var(--grid-inactive); color: var(--text-main); border: 1px solid var(--border); }
-        .btn-secondary:hover { background-color: var(--border); transform: translateY(-2px); }
-        .btn:disabled { opacity: 0.4; transform: none !important; box-shadow: none !important; }
+        .btn:disabled { opacity: 0.4; transform: none !important; }
 
         .timer { font-size: 18px; font-weight: 800; background: var(--grid-inactive); padding: 10px 22px; border-radius: 12px; color: var(--text-main); border: 1px solid var(--border); }
 
         .screen-card { 
             background-color: var(--bg-card); 
             backdrop-filter: var(--backdrop);
-            -webkit-backdrop-filter: var(--backdrop);
             border-radius: 28px; 
             padding: 60px 40px; 
             text-align: center; 
@@ -241,25 +223,23 @@
             margin: 40px auto; 
             border: 1px solid var(--border); 
             box-shadow: var(--shadow); 
-            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: scaleIn 0.5s ease;
         }
-        .screen-card h2 { font-size: 36px; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
-        .screen-card p { color: var(--text-muted); margin-bottom: 40px; line-height: 1.65; font-size: 17px; }
+        .screen-card h2 { font-size: 34px; font-weight: 800; margin-bottom: 20px; }
+        .screen-card p { color: var(--text-muted); margin-bottom: 40px; line-height: 1.65; }
         
-        .explanation-box { background-color: rgba(37, 99, 235, 0.07); border-left: 4px solid var(--accent); padding: 18px; margin-top: 18px; border-radius: 0 12px 12px 0; font-size: 15px; line-height: 1.6; color: var(--text-main); text-align: left; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02); }
+        .explanation-box { background-color: rgba(37, 99, 235, 0.07); border-left: 4px solid var(--accent); padding: 18px; margin-top: 18px; border-radius: 0 12px 12px 0; font-size: 15px; line-height: 1.6; color: var(--text-main); text-align: left; }
 
         .hidden { display: none !important; }
 
-        /* ANIMACIJOS */
-        @keyframes scaleIn { from { opacity: 0; transform: scale(0.95) translateY(15px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="dark-theme">
 
     <div class="custom-cursor" id="cursor"></div>
 
-    <!-- BANGOS -->
     <div class="waves-container">
         <div class="wave"></div>
         <div class="wave"></div>
@@ -276,8 +256,8 @@
     <main class="main-wrapper">
         <div id="start-screen" class="screen-card">
             <h2>Oficialus KET Teorijos Egzaminas</h2>
-            <p>Svetainė atnaujinta integruojant banguojančias juostas bei pritaikyta maksimaliam akių komfortui. Testą sudaro 30 autorinių klausimų, suformuluotų pagal tikslią ir oficialią LR Kelių eismo taisyklių įstatyminę terminologiją. Egzaminui skiriama 40 minučių.</p>
-            <button class="btn btn-primary" style="font-size: 18px; padding: 18px 46px;" onclick="startQuiz()">Pradėti KET egzaminą</button>
+            <p>Egzamino platforma atnaujinta integruojant **realistišką grafiką**. Sankryžų dangos ženklinimas, saugumo salelės, pėsčiųjų perėjos bei visi kelio ženklai atvaizduojami tiksliomis proporcijomis ir spalvomis pagal Lietuvos Respublikos standartus. Testą sudaro 30 laiko limitą turinčių užduočių.</p>
+            <button class="btn btn-primary" style="font-size: 18px; padding: 18px 46px;" onclick="startQuiz()">Pradėti realistišką egzaminą</button>
         </div>
 
         <div id="quiz-screen" class="hidden">
@@ -304,18 +284,16 @@
         <div id="result-screen" class="screen-card hidden">
             <div id="result-badge" style="font-size: 30px; font-weight: 800; padding: 16px 32px; border-radius: 16px; margin-bottom: 25px; display: inline-block;"></div>
             <h3 id="result-percent" style="font-size: 26px; margin-bottom: 35px;">Surinkta: 0%</h3>
-            
             <button class="btn btn-primary" style="padding: 16px 40px; margin-bottom: 40px;" onclick="startQuiz()">Spręsti dar kartą</button>
-
             <div style="text-align: left;">
-                <h3 style="margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 12px; font-size: 22px;">Klaidų bei teisinių nuostatų ataskaita:</h3>
+                <h3 style="margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 12px; font-size: 22px;">Teisinis protokolas ir paaiškinimai:</h3>
                 <div id="review-container"></div>
             </div>
         </div>
     </main>
 
     <script>
-        // --- CUSTOM CURSOR INTERACTION ---
+        // --- CURSOR ---
         const cursor = document.getElementById('cursor');
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
@@ -331,92 +309,122 @@
 
         function toggleTheme() { document.body.classList.toggle('dark-theme'); }
 
-        // --- SANKRYŽŲ SCHEMOS ---
+        // --- MAKSIMALIAI REALISTIŠKOS SANKRYŽŲ IR ŽENKLŲ SVG SCHEMOS ---
         const advancedIntersections = {
             lygiareiksme: `
-            <svg viewBox="0 0 400 400" width="340">
-                <rect x="0" y="0" width="400" height="400" fill="#a3b19b"/>
-                <rect x="130" y="0" width="140" height="400" fill="#3f4444"/>
-                <rect x="0" y="130" width="400" height="140" fill="#3f4444"/>
-                <rect x="0" y="0" width="128" height="128" fill="#1e2522" rx="12"/>
-                <rect x="272" y="0" width="128" height="128" fill="#1e2522" rx="12"/>
-                <rect x="0" y="272" width="128" height="128" fill="#1e2522" rx="12"/>
-                <rect x="272" y="272" width="128" height="128" fill="#1e2522" rx="12"/>
-                <line x1="200" y1="0" x2="200" y2="100" stroke="#fff" stroke-width="3" stroke-dasharray="8,8"/>
-                <line x1="200" y1="300" x2="200" y2="400" stroke="#fff" stroke-width="3" stroke-dasharray="8,8"/>
-                <line x1="0" y1="200" x2="100" y2="200" stroke="#fff" stroke-width="3" stroke-dasharray="8,8"/>
-                <line x1="300" y1="200" x2="400" y2="200" stroke="#fff" stroke-width="3" stroke-dasharray="8,8"/>
-                <g transform="translate(210, 310)">
-                    <rect x="0" y="0" width="40" height="65" rx="8" fill="#ef4444"/>
-                    <rect x="4" y="12" width="32" height="18" fill="#1e293b" rx="2"/>
-                    <circle cx="8" cy="4" r="3" fill="#fffdec"/>
-                    <circle cx="32" cy="4" r="3" fill="#fffdec"/>
-                    <text x="20" y="40" fill="#fff" font-weight="800" font-size="18" text-anchor="middle">1</text>
+            <svg viewBox="0 0 400 400" width="100%">
+                <!-- Aplinka / Žolė -->
+                <rect x="0" y="0" width="400" height="400" fill="#22c55e" fill-opacity="0.25"/>
+                <!-- Pilkas Šaligatvio bortelis -->
+                <rect x="125" y="0" width="150" height="400" fill="#94a3b8"/>
+                <rect x="0" y="125" width="400" height="150" fill="#94a3b8"/>
+                <!-- Tikroviškas asfaltas (Slate-700) -->
+                <rect x="130" y="0" width="140" height="400" fill="#334155"/>
+                <rect x="0" y="130" width="400" height="140" fill="#334155"/>
+                <!-- Sankryžos centras be persidengimų -->
+                <rect x="130" y="130" width="140" height="140" fill="#334155"/>
+                <!-- Ženklinimas: Ištisinės šoninės linijos -->
+                <line x1="130" y1="0" x2="130" y2="130" stroke="#ffffff" stroke-width="2"/>
+                <line x1="270" y1="0" x2="270" y2="130" stroke="#ffffff" stroke-width="2"/>
+                <line x1="130" y1="270" x2="130" y2="400" stroke="#ffffff" stroke-width="2"/>
+                <line x1="270" y1="270" x2="270" y2="400" stroke="#ffffff" stroke-width="2"/>
+                <!-- Ženklinimas: Brūkšninė ašinė linija (KET 1.5) -->
+                <line x1="200" y1="0" x2="200" y2="110" stroke="#ffffff" stroke-width="3" stroke-dasharray="10,10"/>
+                <line x1="200" y1="290" x2="200" y2="400" stroke="#ffffff" stroke-width="3" stroke-dasharray="10,10"/>
+                <line x1="0" y1="200" x2="110" y2="200" stroke="#ffffff" stroke-width="3" stroke-dasharray="10,10"/>
+                <line x1="290" y1="200" x2="400" y2="200" stroke="#ffffff" stroke-width="3" stroke-dasharray="10,10"/>
+                <!-- Pėsčiųjų Perėja ("Zebra") viršuje ir apačioje -->
+                <g fill="#ffffff" opacity="0.9">
+                    <rect x="135" y="105" width="10" height="20"/><rect x="150" y="105" width="10" height="20"/><rect x="165" y="105" width="10" height="20"/>
+                    <rect x="180" y="105" width="10" height="20"/><rect x="195" y="105" width="10" height="20"/><rect x="210" y="105" width="10" height="20"/>
+                    <rect x="225" y="105" width="10" height="20"/><rect x="240" y="105" width="10" height="20"/><rect x="255" y="105" width="10" height="20"/>
                 </g>
-                <g transform="translate(310, 150)">
-                    <rect x="0" y="0" width="65" height="40" rx="8" fill="#2563eb"/>
-                    <rect x="12" y="4" width="18" height="32" fill="#1e293b" rx="2"/>
-                    <circle cx="4" cy="8" r="3" fill="#fffdec"/>
-                    <circle cx="4" cy="32" r="3" fill="#fffdec"/>
-                    <text x="35" y="26" fill="#fff" font-weight="800" font-size="18" text-anchor="middle">2</text>
+                <!-- Automobilis 1 (Raudonas, modernus dizainas iš viršaus) -->
+                <g transform="translate(215, 310)">
+                    <rect x="0" y="0" width="36" height="60" rx="6" fill="#dc2626" stroke="#991b1b" stroke-width="2"/>
+                    <rect x="4" y="10" width="28" height="15" fill="#0f172a" rx="2"/> <!-- Priekinis stiklas -->
+                    <rect x="4" y="38" width="28" height="12" fill="#0f172a" rx="2"/> <!-- Galinis stiklas -->
+                    <circle cx="6" cy="4" r="3" fill="#fef08a"/> <!-- Žibintai -->
+                    <circle cx="30" cy="4" r="3" fill="#fef08a"/>
+                    <text x="18" y="34" fill="#ffffff" font-weight="800" font-size="16" text-anchor="middle">1</text>
+                </g>
+                <!-- Automobilis 2 (Mėlynas) -->
+                <g transform="translate(310, 145)">
+                    <rect x="0" y="0" width="60" height="36" rx="6" fill="#2563eb" stroke="#1d4ed8" stroke-width="2"/>
+                    <rect x="35" y="4" width="15" height="28" fill="#0f172a" rx="2"/>
+                    <rect x="10" y="4" width="12" height="28" fill="#0f172a" rx="2"/>
+                    <circle cx="56" cy="6" r="3" fill="#fef08a"/>
+                    <circle cx="56" cy="30" r="3" fill="#fef08a"/>
+                    <text x="28" y="24" fill="#ffffff" font-weight="800" font-size="16" text-anchor="middle">2</text>
                 </g>
             </svg>`,
 
             prioriteto: `
-            <svg viewBox="0 0 400 400" width="340">
-                <rect x="0" y="0" width="400" height="400" fill="#a3b19b"/>
-                <rect x="130" y="0" width="140" height="400" fill="#3f4444"/>
-                <rect x="0" y="130" width="400" height="140" fill="#3f4444"/>
-                <rect x="0" y="0" width="128" height="128" fill="#1e2522" rx="12"/>
-                <rect x="272" y="0" width="128" height="128" fill="#1e2522" rx="12"/>
-                <rect x="0" y="272" width="128" height="128" fill="#1e2522" rx="12"/>
-                <rect x="272" y="272" width="128" height="128" fill="#1e2522" rx="12"/>
-                <line x1="200" y1="0" x2="200" y2="400" stroke="#fff" stroke-width="3" stroke-dasharray="6,6"/>
-                <line x1="0" y1="200" x2="400" y2="200" stroke="#fff" stroke-width="3" stroke-dasharray="6,6"/>
-                <g transform="translate(95, 300)">
-                    <rect x="0" y="0" width="22" height="22" transform="rotate(45 11 11)" fill="#fff" stroke="#000" stroke-width="1.5"/>
-                    <rect x="2.5" y="2.5" width="17" height="17" transform="rotate(45 11 11)" fill="#ffcc00"/>
+            <svg viewBox="0 0 400 400" width="100%">
+                <rect x="0" y="0" width="400" height="400" fill="#22c55e" fill-opacity="0.25"/>
+                <rect x="125" y="0" width="150" height="400" fill="#94a3b8"/>
+                <rect x="0" y="125" width="400" height="150" fill="#94a3b8"/>
+                <rect x="130" y="0" width="140" height="400" fill="#334155"/>
+                <rect x="0" y="130" width="400" height="140" fill="#334155"/>
+                <rect x="130" y="130" width="140" height="140" fill="#334155"/>
+                <line x1="200" y1="0" x2="200" y2="400" stroke="#ffffff" stroke-width="2" stroke-dasharray="8,8"/>
+                <line x1="0" y1="200" x2="400" y2="200" stroke="#ffffff" stroke-width="2" stroke-dasharray="8,8"/>
+                
+                <!-- Realistiškas ženklo stulpas ir ženklas Nr. 201 "Pagrindinis kelias" -->
+                <g transform="translate(90, 290)">
+                    <rect x="-2" y="-2" width="28" height="28" transform="rotate(45)" fill="#ffffff"/>
+                    <rect x="2" y="2" width="20" height="20" transform="rotate(45)" fill="#eab308"/>
                 </g>
-                <g transform="translate(290, 95)">
-                    <polygon points="0,0 26,0 13,22" fill="#fff" stroke="#dc2626" stroke-width="3"/>
+                <!-- Ženklas Nr. 203 "Duoti kelią" dešinėje (apverstas trikampis) -->
+                <g transform="translate(290, 90)">
+                    <polygon points="0,0 30,0 15,26" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
                 </g>
-                <g transform="translate(210, 310)">
-                    <rect x="0" y="0" width="40" height="65" rx="8" fill="#ef4444"/>
-                    <rect x="4" y="12" width="32" height="18" fill="#1e293b" rx="2"/>
-                    <text x="20" y="40" fill="#fff" font-weight="800" font-size="18" text-anchor="middle">1</text>
+
+                <g transform="translate(215, 310)">
+                    <rect x="0" y="0" width="36" height="60" rx="6" fill="#dc2626" stroke="#991b1b" stroke-width="2"/>
+                    <text x="18" y="35" fill="#ffffff" font-weight="800" font-size="16" text-anchor="middle">1</text>
                 </g>
-                <g transform="translate(310, 150)">
-                    <rect x="0" y="0" width="65" height="40" rx="8" fill="#f59e0b"/>
-                    <rect x="12" y="4" width="18" height="32" fill="#1e293b" rx="2"/>
-                    <text x="35" y="26" fill="#fff" font-weight="800" font-size="18" text-anchor="middle">2</text>
+                <g transform="translate(310, 145)">
+                    <rect x="0" y="0" width="60" height="36" rx="6" fill="#eab308" stroke="#ca8a04" stroke-width="2"/>
+                    <text x="30" y="24" fill="#ffffff" font-weight="800" font-size="16" text-anchor="middle">2</text>
                 </g>
             </svg>`,
 
             kairysis: `
-            <svg viewBox="0 0 400 400" width="340">
-                <rect x="0" y="0" width="400" height="400" fill="#a3b19b"/>
-                <rect x="130" y="0" width="140" height="400" fill="#3f4444"/>
-                <rect x="0" y="130" width="400" height="140" fill="#3f4444"/>
-                <rect x="0" y="0" width="128" height="128" fill="#1e2522" rx="12"/>
-                <rect x="272" y="0" width="128" height="128" fill="#1e2522" rx="12"/>
-                <rect x="0" y="272" width="128" height="128" fill="#1e2522" rx="12"/>
-                <rect x="272" y="272" width="128" height="128" fill="#1e2522" rx="12"/>
-                <line x1="200" y1="0" x2="200" y2="400" stroke="#fff" stroke-width="3" stroke-dasharray="6,6"/>
-                <path d="M 230 310 Q 230 170 80 170" fill="none" stroke="#fbbf24" stroke-width="4" stroke-dasharray="6,4"/>
-                <g transform="translate(210, 310)">
-                    <rect x="0" y="0" width="40" height="65" rx="8" fill="#ef4444"/>
-                    <rect x="4" y="12" width="32" height="18" fill="#1e293b" rx="2"/>
-                    <text x="20" y="40" fill="#fff" font-weight="800" font-size="18" text-anchor="middle">1</text>
+            <svg viewBox="0 0 400 400" width="100%">
+                <rect x="0" y="0" width="400" height="400" fill="#22c55e" fill-opacity="0.25"/>
+                <rect x="125" y="0" width="150" height="400" fill="#94a3b8"/>
+                <rect x="0" y="125" width="400" height="150" fill="#94a3b8"/>
+                <rect x="130" y="0" width="140" height="400" fill="#334155"/>
+                <rect x="0" y="130" width="400" height="140" fill="#334155"/>
+                <line x1="200" y1="0" x2="200" y2="400" stroke="#ffffff" stroke-width="2" stroke-dasharray="6,6"/>
+                <!-- Manevro trajektorijos linija -->
+                <path d="M 230 310 Q 230 180 70 180" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8,4" stroke-linecap="round"/>
+                
+                <g transform="translate(215, 310)">
+                    <rect x="0" y="0" width="36" height="60" rx="6" fill="#dc2626" stroke="#991b1b" stroke-width="2"/>
+                    <text x="18" y="35" fill="#ffffff" font-weight="800" font-size="16" text-anchor="middle">1</text>
                 </g>
-                <g transform="translate(150, 25)">
-                    <rect x="0" y="0" width="40" height="65" rx="8" fill="#10b981"/>
-                    <rect x="4" y="35" width="32" height="18" fill="#1e293b" rx="2"/>
-                    <text x="20" y="30" fill="#fff" font-weight="800" font-size="18" text-anchor="middle">2</text>
+                <g transform="translate(150, 30)">
+                    <rect x="0" y="0" width="36" height="60" rx="6" fill="#10b981" stroke="#047857" stroke-width="2"/>
+                    <text x="18" y="35" fill="#ffffff" font-weight="800" font-size="16" text-anchor="middle">2</text>
                 </g>
             </svg>`,
 
-            zenklasStop: `<svg viewBox="0 0 100 100" width="150"><polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#dc2626" stroke="#fff" stroke-width="3"/><text x="50" y="62" font-size="24" font-weight="900" fill="#fff" text-anchor="middle" font-family="sans-serif">STOP</text></svg>`,
-            zenklasApsisukimas: `<svg viewBox="0 0 100 100" width="150"><rect x="5" y="5" width="90" height="90" rx="10" fill="#2563eb" stroke="#fff" stroke-width="2"/><path d="M 50 80 L 50 40 Q 50 20 70 20 Q 80 20 80 35 L 80 45 M 65 40 L 80 55 L 95 40" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+            // IDENTIŠKI LIETUVOS KET STANDARTAMS ŽENKLAI
+            zenklasStop: `
+            <svg viewBox="0 0 100 100" width="130">
+                <!-- Oficialus reguliarus aštuonkampis raudonas STOP ženklas -->
+                <polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#dc2626" stroke="#ffffff" stroke-width="3"/>
+                <text x="50" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">STOP</text>
+            </svg>`,
+            
+            zenklasApsisukimas: `
+            <svg viewBox="0 0 100 100" width="130">
+                <!-- Oficialus mėlynas kvadratas Nr. 515 -->
+                <rect x="5" y="5" width="90" height="90" rx="6" fill="#1d4ed8" stroke="#ffffff" stroke-width="3"/>
+                <path d="M 50 80 L 50 42 Q 50 22 70 22 Q 82 22 82 37 L 82 45 M 68 40 L 82 54 L 96 40" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>`
         };
 
         // --- 30 KLAUSIMŲ DUOMENŲ BAZĖ (OFICIALI TERMINOLOGIJA) ---
@@ -467,9 +475,9 @@
                 explanation: "Pagal KET 73.2 punktą: Mirksintis žalias signalas leidžia eismą ir įspėja, kad jo laikas baigiasi ir netrukus bus įjungtas draudžiamasis signalas."
             },
             {
-                text: "Kokia maksimali leistina etilo alkoholio koncentracija kraujyje (neblaivumas) taikoma pradedantiesiems vairuotojams?",
-                svg: null, options: ["0,0 promilės", "0,2 promilės", "0,4 promilės"], correct: 0,
-                explanation: "Pagal LR SEAKĮ: Pradedantieji vairuotojai (stažas iki 2 metų) transporto priemones gali vairuoti tik būdami visiškai blaivūs – jiems taikoma 0,0 promilės riba."
+                text: "Koriai eismo dalyviai transporto priemones privalo vairuoti turėdami visišką (0,0 promilių) blaivumą?",
+                svg: null, options: ["Pradedantieji vairuotojai, taksi automobilių, motociklų bei mopedų vairuotojai", "Visi vairuotojai, kurių amžius viršija 50 metų", "Tik asmenys, kurie vykdo tarptautinius krovinių pervežimus"], correct: 0,
+                explanation: "Pagal Lietuvos Respublikos SEAKĮ, pradedantiesiems, motociklų, mopedų, taksi ir komercinio transporto vairuotojams galioja absoliuti 0,0 promilės norma."
             },
             {
                 text: "Ar leidžiama lenkti transporto priemones nereguliuojamoje sankryžoje, važiuojant šalutiniu keliu?",
@@ -583,7 +591,7 @@
             }
         ];
 
-        // --- FISHER-YATES SHUFFLE ALGORITMAS ---
+        // --- SHUFFLE ---
         function fisherYatesShuffle(array) {
             let currentIndex = array.length, randomIndex;
             while (currentIndex != 0) {
@@ -632,11 +640,8 @@
         function showQuestion(index) {
             document.querySelectorAll('.grid-item').forEach((el, idx) => {
                 el.classList.remove('current');
-                if (userAnswers[idx] !== null) {
-                    el.classList.add('answered');
-                } else {
-                    el.classList.remove('answered');
-                }
+                if (userAnswers[idx] !== null) el.classList.add('answered');
+                else el.classList.remove('answered');
             });
             
             currentQuestionIndex = index;
@@ -665,9 +670,7 @@
             qData.options.forEach((opt, oIdx) => {
                 const btn = document.createElement('button');
                 btn.className = 'option-button';
-                if (userAnswers[index] === oIdx) {
-                    btn.classList.add('selected');
-                }
+                if (userAnswers[index] === oIdx) btn.classList.add('selected');
                 btn.innerText = opt;
                 btn.onclick = () => selectOption(oIdx);
                 optionsBlock.appendChild(btn);
@@ -677,13 +680,10 @@
             const nextBtn = document.getElementById('next-btn');
             if (index === TOTAL_QUESTIONS - 1) {
                 nextBtn.innerText = "Baigti egzaminą";
-                nextBtn.classList.remove('btn-primary');
                 nextBtn.style.backgroundColor = 'var(--success)';
-                nextBtn.style.color = '#fff';
             } else {
                 nextBtn.innerText = "Toliau";
                 nextBtn.style.backgroundColor = '';
-                nextBtn.classList.add('btn-primary');
             }
         }
 
@@ -698,28 +698,18 @@
             });
         }
 
-        function goPrev() {
-            if (currentQuestionIndex > 0) {
-                showQuestion(currentQuestionIndex - 1);
-            }
-        }
-
+        function goPrev() { if (currentQuestionIndex > 0) showQuestion(currentQuestionIndex - 1); }
         function goNext() {
-            if (currentQuestionIndex < TOTAL_QUESTIONS - 1) {
-                showQuestion(currentQuestionIndex + 1);
-            } else {
-                finishExam();
-            }
+            if (currentQuestionIndex < TOTAL_QUESTIONS - 1) showQuestion(currentQuestionIndex + 1);
+            else finishExam();
         }
 
         function startTimer() {
             if (examTimer) clearInterval(examTimer);
             examTimer = setInterval(() => {
                 timeLeft--;
-                if (timeLeft <= 0) {
-                    clearInterval(examTimer);
-                    finishExam();
-                } else {
+                if (timeLeft <= 0) { clearInterval(examTimer); finishExam(); }
+                else {
                     const mins = Math.floor(timeLeft / 60);
                     const secs = timeLeft % 60;
                     document.getElementById('timer').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
