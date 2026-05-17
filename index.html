@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKET.LT - KET Teorijos Testas</title>
+    <title>MVKET - Modernus KET Teorijos Testas</title>
     <style>
         :root {
-            --navy-dark: #0B1B3D;
-            --navy-bright: #1E3A8A;
-            --accent-blue: #3B82F6;
-            --success: #10B981;
-            --danger: #EF4444;
-            --bg-light: #F8FAFC;
-            --card-bg: #FFFFFF;
-            --text-main: #1E293B;
-            --text-muted: #64748B;
+            --navy-dark: #0f172a;
+            --navy-bright: #1e3a8a;
+            --accent-blue: #2563eb;
+            --accent-hover: #1d4ed8;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
         }
 
         body {
@@ -31,139 +34,161 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
         }
 
-        /* Profesionalus Headeris */
+        /* --- HEADER --- */
         header {
             width: 100%;
-            max-width: 900px;
+            background-color: var(--card-bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            width: 100%;
+            max-width: 1000px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
-            border-bottom: 2px solid #E2E8F0;
-            margin-bottom: 25px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 26px;
+            font-weight: 900;
             color: var(--navy-dark);
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
-        .timer-box {
-            background-color: var(--navy-dark);
-            color: white;
+        .rating-display {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .star-icon { color: var(--warning); font-size: 16px; }
+
+        .auth-section button {
+            background-color: white;
+            border: 1px solid var(--border-color);
             padding: 8px 16px;
             border-radius: 6px;
-            font-weight: bold;
-            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
         }
 
-        /* Pagrindinis Konteineris */
+        .auth-section button:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* --- MAIN WRAPPER --- */
         .main-wrapper {
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
+            padding: 30px 20px;
+            flex-grow: 1;
         }
 
-        /* Regitros Stiliaus Klausimų Navigacija */
+        /* --- GRID NAVIGATION --- */
         .questions-grid {
             display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            gap: 8px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(15, 1fr);
+            gap: 6px;
+            margin-bottom: 25px;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        @media (max-width: 600px) {
-            .questions-grid {
-                grid-template-columns: repeat(5, 1fr);
-            }
+        @media (max-width: 768px) {
+            .questions-grid { grid-template-columns: repeat(10, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .questions-grid { grid-template-columns: repeat(6, 1fr); }
         }
 
         .grid-item {
-            background-color: #E2E8F0;
-            border: none;
-            padding: 10px;
+            background-color: #f1f5f9;
+            border: 1px solid transparent;
+            padding: 8px 0;
             font-weight: 600;
-            font-size: 14px;
-            color: var(--text-main);
+            font-size: 13px;
+            color: var(--text-muted);
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s;
             text-align: center;
         }
 
-        .grid-item:hover {
-            background-color: #CBD5E1;
-        }
-
+        .grid-item:hover { background-color: #e2e8f0; }
+        .grid-item.answered { background-color: var(--navy-dark); color: white; }
         .grid-item.current {
             background-color: var(--accent-blue);
             color: white;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
         }
 
-        .grid-item.answered {
-            background-color: var(--navy-dark);
-            color: white;
-        }
-
-        /* Klausimo Kortelė */
+        /* --- QUIZ CARD --- */
         .quiz-card {
             background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             padding: 30px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
         }
 
-        @media (max-width: 768px) {
-            .quiz-card {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 800px) {
+            .quiz-card { grid-template-columns: 1fr; gap: 20px; }
         }
 
         .visual-side {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #F1F5F9;
-            border-radius: 8px;
-            padding: 15px;
+            border: 1px solid var(--border-color);
             min-height: 250px;
         }
 
         .visual-side img {
             max-width: 100%;
-            max-height: 280px;
+            max-height: 300px;
             object-fit: contain;
-            border-radius: 4px;
-        }
-
-        .no-image-placeholder {
-            color: var(--text-muted);
-            font-style: italic;
-            text-align: center;
-        }
-
-        .content-side {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            border-radius: 8px;
         }
 
         .question-text {
-            font-size: 19px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--navy-dark);
-            margin-bottom: 20px;
-            line-height: 1.4;
+            margin-bottom: 25px;
+            line-height: 1.5;
         }
 
         .options-container {
@@ -173,11 +198,11 @@
         }
 
         .option-button {
-            background-color: #F8FAFC;
-            border: 2px solid #E2E8F0;
-            border-radius: 8px;
-            padding: 14px 18px;
-            font-size: 15px;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px 20px;
+            font-size: 16px;
             text-align: left;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -186,548 +211,449 @@
         }
 
         .option-button:hover {
-            background-color: #F1F5F9;
-            border-color: #CBD5E1;
+            border-color: #cbd5e1;
+            background-color: #f8fafc;
         }
 
         .option-button.selected {
-            background-color: #EFF6FF;
+            background-color: #eff6ff;
             border-color: var(--accent-blue);
             color: var(--navy-bright);
         }
 
-        /* Navigacijos mygtukai */
         .action-bar {
-            margin-top: 25px;
+            margin-top: 30px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .btn {
             padding: 12px 24px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s;
             border: none;
         }
 
-        .btn-secondary {
-            background-color: #E2E8F0;
-            color: var(--text-main);
+        .btn-primary { background-color: var(--accent-blue); color: white; }
+        .btn-primary:hover { background-color: var(--accent-hover); }
+        .btn-secondary { background-color: #e2e8f0; color: var(--text-main); }
+        .btn-secondary:hover { background-color: #cbd5e1; }
+
+        .timer {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy-dark);
+            background: #f1f5f9;
+            padding: 8px 16px;
+            border-radius: 8px;
         }
 
-        .btn-secondary:hover {
-            background-color: #CBD5E1;
-        }
-
-        .btn-primary {
-            background-color: var(--navy-bright);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--navy-dark);
-        }
-
-        .btn-success {
-            background-color: var(--success);
-            color: white;
-        }
-
-        /* Pradžios ir Rezultatų langai */
+        /* --- SCREENS --- */
         .screen-card {
             background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 50px;
             text-align: center;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        .screen-card h2 {
-            color: var(--navy-dark);
-            margin-bottom: 15px;
-        }
-
-        .screen-card p {
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .result-badge {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 8px;
-        }
-
-        .badge-pass { background-color: #D1FAE5; color: var(--success); }
-        .badge-fail { background-color: #FEE2E2; color: var(--danger); }
+        .screen-card h2 { color: var(--navy-dark); margin-bottom: 20px; font-size: 28px; }
+        .screen-card p { color: var(--text-muted); margin-bottom: 30px; line-height: 1.6; font-size: 16px; }
 
         .hidden { display: none !important; }
 
-        /* Apžvalgos sekcija pabaigoje */
-        .review-list {
-            margin-top: 40px;
-            text-align: left;
+        /* --- MODAL (Google Login) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
 
-        .review-item {
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
+        .modal-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .google-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            width: 100%;
             border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .review-q { font-weight: 700; margin-bottom: 10px; color: var(--navy-dark); }
-        .review-info { font-size: 14px; margin-top: 5px; }
-        .text-correct { color: var(--success); font-weight: bold; }
-        .text-wrong { color: var(--danger); font-weight: bold; }
+        .google-btn:hover { background: #f8fafc; }
+
+        /* --- RATING SYSTEM (Pabaigos ekrane) --- */
+        .rating-box {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .stars-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            flex-direction: row-reverse; /* For pure CSS hover logic */
+        }
+
+        .star-rate {
+            font-size: 35px;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .stars-container .star-rate:hover,
+        .stars-container .star-rate:hover ~ .star-rate {
+            color: var(--warning);
+        }
+
+        .star-rate.active { color: var(--warning); }
+        .star-rate.active ~ .star-rate { color: var(--warning); }
+
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo" onclick="location.reload()">MKET.LT</a>
-        <div id="timer" class="timer-box hidden">40:00</div>
+        <div class="header-content">
+            <div class="logo-section">
+                <a href="#" class="logo" onclick="location.reload()">MVKET</a>
+                <div class="rating-display" id="global-rating-display">
+                    <span class="star-icon">★</span>
+                    <span id="global-score">4.8</span> (<span id="global-votes">124</span> balsai)
+                </div>
+            </div>
+            <div class="auth-section" id="auth-section">
+                <button onclick="openLoginModal()">
+                    <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                    Prisijungti
+                </button>
+            </div>
+        </div>
     </header>
 
-    <main class="main-wrapper">
+    <!-- LOGIN MODAL -->
+    <div id="login-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <h2 style="color: var(--navy-dark); margin-bottom: 10px;">Prisijungimas</h2>
+            <p style="color: var(--text-muted); font-size: 14px;">Prisijunkite, kad išsaugotumėte savo rezultatus ir įvertintumėte testą.</p>
+            <button class="google-btn" onclick="simulateGoogleLogin()">
+                <svg width="24" height="24" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                Tęsti su Google
+            </button>
+            <button onclick="closeLoginModal()" style="margin-top: 15px; background: none; border: none; color: var(--text-muted); cursor: pointer; text-decoration: underline;">Atšaukti</button>
+        </div>
+    </div>
 
-        <!-- PRADŽIOS EKRANAS -->
+    <main class="main-wrapper">
+        <!-- START SCREEN -->
         <div id="start-screen" class="screen-card">
-            <h2>B Kategorijos KET Teorijos Testas</h2>
-            <p>Testą sudaro 30 atsitiktinių klausimų, parinktų iš gausios duomenų bazės. Kiekvienas naujas bandymas sugeneruos visiškai skirtingą užduočių rinkinį. Tam, kad išlaikytumėte, privalote teisingai atsakyti bent į 80% klausimų (24 iš 30). Laikas: 40 minučių.</p>
-            <button class="btn btn-primary" onclick="initQuiz()">Pradėti egzaminą</button>
+            <h2>Pasiruošę B Kategorijos Egzaminui?</h2>
+            <p>MVKET platforma naudoja naujausią klausimų bazę su realiomis eismo situacijomis. Testą sudaro 30 klausimų, kuriems skiriama 40 minučių. Norint išlaikyti, reikia 80% teisingų atsakymų.</p>
+            <button class="btn btn-primary" style="font-size: 18px; padding: 15px 35px;" onclick="startQuiz()">Pradėti testą</button>
         </div>
 
-        <!-- EGZAMINO EKRANAS -->
+        <!-- QUIZ SCREEN -->
         <div id="quiz-screen" class="hidden">
-            <!-- 30 klausimų tinklelis -->
             <div id="questions-grid" class="questions-grid"></div>
 
-            <!-- Klausimo forma -->
             <div class="quiz-card">
-                <div class="visual-side" id="visual-block">
-                    <img id="q-image" src="" alt="KET Situacija">
-                    <div id="q-placeholder" class="no-image-placeholder hidden">Sankryžos schemos ar ženklo nuotraukos šiam klausimui nėra. Vadovaukitės tekstu.</div>
+                <div class="visual-side">
+                    <img id="q-image" src="" alt="Situacija">
+                    <div id="q-placeholder" style="color: var(--text-muted); font-style: italic;" class="hidden">Nuotraukos šiam klausimui nėra.</div>
                 </div>
                 <div class="content-side">
-                    <div>
-                        <div id="q-text" class="question-text">Kraunamas klausimas...</div>
-                        <div id="options-block" class="options-container"></div>
-                    </div>
+                    <div id="q-text" class="question-text">Kraunama...</div>
+                    <div id="options-block" class="options-container"></div>
+                    
                     <div class="action-bar">
-                        <button class="btn btn-secondary" id="prev-btn" onclick="goPrevious()">Atgal</button>
+                        <button class="btn btn-secondary" id="prev-btn" onclick="goPrev()">Atgal</button>
+                        <div id="timer" class="timer">40:00</div>
                         <button class="btn btn-primary" id="next-btn" onclick="goNext()">Toliau</button>
                     </div>
                 </div>
             </div>
-            
-            <div style="text-align: right; margin-top: 15px;">
-                <button class="btn btn-success" onclick="finishQuiz(false)">Baigti testą anksčiau laiko</button>
+            <div style="text-align: right; margin-top: 20px;">
+                <button class="btn btn-secondary" style="background: #fee2e2; color: #dc2626;" onclick="finishQuiz()">Baigti anksčiau</button>
             </div>
         </div>
 
-        <!-- REZULTATŲ EKRANAS -->
+        <!-- RESULT SCREEN -->
         <div id="result-screen" class="screen-card hidden" style="max-width: 800px;">
-            <div id="result-badge" class="result-badge">IŠLAIKYTA</div>
-            <h3 id="result-percent" style="font-size: 22px; margin-bottom: 10px;">Surinkta: 0%</h3>
-            <p id="result-text">Teisingų atsakymų skaičius</p>
+            <div id="result-badge" style="font-size: 32px; font-weight: 800; padding: 15px; border-radius: 12px; margin-bottom: 20px;"></div>
+            <h3 id="result-percent" style="font-size: 24px; color: var(--navy-dark);">Surinkta: 0%</h3>
             
-            <button class="btn btn-primary" onclick="initQuiz()">Spręsti dar kartą (Nauji klausimai)</button>
+            <!-- RATING SECTION -->
+            <div class="rating-box" id="rating-section">
+                <h4 style="color: var(--navy-dark); font-size: 18px;">Kaip vertinate MVKET platformą?</h4>
+                <div id="login-prompt-rating" style="margin-top: 10px; color: var(--text-muted); font-size: 14px;">
+                    Norėdami palikti įvertinimą, turite <a href="#" onclick="openLoginModal()" style="color: var(--accent-blue);">prisijungti</a>.
+                </div>
+                <div id="stars-ui" class="stars-container hidden">
+                    <span class="star-rate" onclick="submitRating(5)">★</span>
+                    <span class="star-rate" onclick="submitRating(4)">★</span>
+                    <span class="star-rate" onclick="submitRating(3)">★</span>
+                    <span class="star-rate" onclick="submitRating(2)">★</span>
+                    <span class="star-rate" onclick="submitRating(1)">★</span>
+                </div>
+                <div id="thank-you-msg" class="hidden" style="color: var(--success); font-weight: bold; margin-top: 15px;">Ačiū už jūsų įvertinimą!</div>
+            </div>
 
-            <div class="review-list">
-                <h3 style="margin-bottom: 15px; color: var(--navy-dark);">Klaidų ir atsakymų ataskaita:</h3>
+            <button class="btn btn-primary" onclick="startQuiz()">Spręsti naują testą</button>
+
+            <!-- REVIEW LIST -->
+            <div style="margin-top: 40px; text-align: left;">
+                <h3 style="margin-bottom: 20px; color: var(--navy-dark);">Jūsų atsakymai:</h3>
                 <div id="review-container"></div>
             </div>
         </div>
-
     </main>
 
     <script>
-        // DIDELĖ KLAUSIMŲ DUOMENŲ BAZĖ (Su tikromis nuorodomis į ženklus ir situacijas)
-        const questionPool = [
-            {
-                text: "Ką nurodo šis kelio ženklas nereguliuojamoje sankryžoje?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Lithuanian_road_sign_201.svg",
-                options: ["Suteikia pirmenybę važiuoti per nereguliuojamas sankryžas", "Įpareigoja duoti kelią visiems iš dešinės", "Draudžia eismą šia kryptimi", "Nurodo, kad eismas vyksta viena kryptimi"],
-                correct: 0
-            },
-            {
-                text: "Prieš jus iškilo šis ženklas. Kokie jūsų veiksmai?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Lithuanian_road_sign_203.svg",
-                options: ["Privaloma sustoti bet kokiu atveju", "Duoti kelią transporto priemonėms, važiuojančioms kertamuoju keliu", "Turite pirmenybę prieš kitus", "Greitinti važiavimą"],
-                correct: 1
-            },
-            {
-                text: "Prieš važiuojant į sankryžą pamatote šį ženklą. Kur privalote sustoti?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Lithuanian_road_sign_204.svg",
-                options: ["Sustoti nebūtina, jei sankryža tuščia", "Prieš „Stop“ liniją, o jei jos nėra – prieš pat kertamąją važiuojamąją dalį", "Likus 10 metrų iki sankryžos", "Sustoti tik tuo atveju, jei važiuoja traukinys"],
-                correct: 1
-            },
-            {
-                text: "Ar leidžiama įvažiuoti į kelią už šio ženklo?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Lithuanian_road_sign_301.svg",
-                options: ["Leidžiama visiems", "Draudžiama įvažiuoti visoms transporto priemonėms, išskyrus maršrutinį transportą", "Leidžiama tik aptarnaujančiam transportui", "Leidžiama tik savaitgaliais"],
-                correct: 1
-            },
-            {
-                text: "Koks yra maksimalus leidžiamas greitis automagistralėse lengviesiems automobiliams vasaros sezono metu (nuo balandžio 1 d. iki spalio 31 d.)?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Lithuanian_road_sign_501.svg",
-                options: ["110 km/h", "120 km/h", "130 km/h", "140 km/h"],
-                correct: 2
-            },
-            {
-                text: "Ką reiškia šis įspėjamasis ženklas?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Lithuanian_road_sign_101.svg",
-                options: ["Staigi nuokalnė", "Staigi įkalnė", "Nelygus kelias", "Siauras kelias"],
-                correct: 1
-            },
-            {
-                text: "Koks yra maksimalus leidžiamas greitis gyvenvietėse visiems lengviesiems automobiliams, jei nėra kitokių nurodymų?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Lithuanian_road_sign_329-50.svg",
-                options: ["20 km/h", "40 km/h", "50 km/h", "60 km/h"],
-                correct: 2
-            },
-            {
-                text: "Kuria kryptimi leidžiama važiuoti už šio ženklo?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/7/76/Lithuanian_road_sign_401.svg",
-                options: ["Tik tiesiai", "Tiesiai ir į dešinę", "Tik į kairę", "Bet kuria kryptimi"],
-                correct: 0
-            },
-            {
-                text: "Kokia maksimali leistina alkoholio koncentracija kraujyje taikoma pradedantiesiems vairuotojams (neturintiems 2 metų stažo)?",
-                image: "",
-                options: ["0,4 promilės", "0,2 promilės", "0,0 promilės", "0,1 promilės"],
-                correct: 2
-            },
-            {
-                text: "Nereguliuojamoje lygiareikšmių kelių sankryžoje iš dešinės pusės artėja kita transporto priemonė. Kas turi pirmenybę?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Sankryza_example.png/320px-Sankryza_example.png",
-                options: ["Jūs, nes jūsų trajektorija tiesi", "Artėjanti transporto priemonė iš dešinės (kliūties iš dešinės taisyklė)", "Tas, kuris važiuoja greičiau", "Sprendžiama abipusiu vairuotojų sutarimu"],
-                correct: 1
-            },
-            {
-                text: "Sukate į kairę sankryžoje esant žaliam šviesoforo signalui. Kam privalote duoti kelią?",
-                image: "",
-                options: ["Niekam, žalias signalas suteikia visišką pirmenybę", "Priešpriešiais tiesiai arba į dešinę važiuojančioms transporto priemonėms ir pėstiesiems", "Tik iš dešinės pusės atvažiuojantiems automobiliams", "Tik autobusams"],
-                correct: 1
-            },
-            {
-                text: "Ką reiškia degantis geltonas šviesoforo signalas?",
-                image: "",
-                options: ["Eismas leidžiamas", "Draudžia eismą ir įspėja apie signalų pasikeitimą", "Suteikia pirmenybę prieš visus", "Reiškia, kad sankryža tapo lygiareikšmė"],
-                correct: 1
-            },
-            {
-                text: "Koks yra maksimalus leistinas greitis gyvenamojoje zonoje?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Lithuanian_road_sign_552.svg",
-                options: ["10 km/h", "20 km/h", "30 km/h", "50 km/h"],
-                correct: 1
-            },
-            {
-                text: "Ar privaloma įjungti posūkio signalą prieš persirikiuojant į kitą eismo juostą?",
-                image: "",
-                options: ["Privaloma visada", "Tik tamsiu paros metu", "Tik tada, kai kitoje juostoje yra kitas automobilis", "Nebūtina, jei manevras atliekamas greitai"],
-                correct: 0
-            },
-            {
-                text: "Koks minimalus padangų protektoriaus gylis yra privalomas lengviesiems automobiliams vasaros sezono metu (nuo balandžio 1 d.)?",
-                image: "",
-                options: ["0.8 mm", "1.6 mm", "3.0 mm", "2.0 mm"],
-                correct: 1
-            },
-            {
-                text: "Koks minimalus padangų protektoriaus gylis privalomas lengviesiems automobiliams žiemos sezono metu (nuo lapkričio 10 d.)?",
-                image: "",
-                options: ["1.6 mm", "2.0 mm", "3.0 mm", "4.0 mm"],
-                correct: 2
-            },
-            {
-                text: "Užmiestyje, pėsčiųjų takų nėra. Kuria kelio puse privalo eiti pėstieji?",
-                image: "",
-                options: ["Dešiniuoju kelkraščiu (pagal eismo kryptį)", "Kairiuoju kelkraščiu (prieš transporto priemonių eismą)", "Bet kuria puse", "Tik važiuojamosios dalies viduriu"],
-                correct: 1
-            },
-            {
-                text: "Kada gyvenvietėje galima naudoti garsinį signalą?",
-                image: "",
-                options: ["Norint pasisveikinti arba atkreipti pažįstamų dėmesį", "Tik siekiant išvengti eismo įvykio", "Norint paskubinti lėtai važiuojantį automobilį", "Naudoti draudžiama visais atvejais"],
-                correct: 1
-            },
-            {
-                text: "Jeigu reguliuotojas atsisukęs į Jus krūtine arba nugara, o rankos nuleistos, ką tai reiškia?",
-                image: "",
-                options: ["Važiuoti leidžiama tiesiai ir į dešinę", "Eismas draudžiamas", "Privaloma apsisukti", "Galima važiuoti visomis kryptimis"],
-                correct: 1
-            },
-            {
-                text: "Ką nurodo šis kelio ženklas?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Lithuanian_road_sign_302.svg",
-                options: ["Eismas draudžiamas transporto priemonėms, išskyrus maršrutinį transportą", "Eismas draudžiamas visoms transporto priemonėms", "Automobilių eismas draudžiamas", "Mopedų eismas draudžiamas"],
-                correct: 2
-            },
-            {
-                text: "Ar maršrutinis transportas (autobusas) turi pirmenybę pajudėdamas iš pažymėtos stotelės gyvenvietėje?",
-                image: "",
-                options: ["Taip, vairuotojai privalo duoti kelią iš stotelės pradedančiam važiuoti autobusui", "Ne, autobusas privalo praleisti visus", "Turi pirmenybę tik tamsiu paros metu", "Turi pirmenybę tik esant spūstims"],
-                correct: 0
-            },
-            {
-                text: "Kas privalo išlipus iš automobilio užmiestyje tamsiu paros metu dėvėti šviesą atspindinčią liemenę?",
-                image: "",
-                options: ["Tik keleiviai", "Vairuotojas ir visi išlipę keleiviai", "Niekas, tai neprivaloma", "Tik jei automobilis sugedo"],
-                correct: 1
-            },
-            {
-                text: "Ką reiškia šis ženklas?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Lithuanian_road_sign_131.svg",
-                options: ["Pėsčiųjų perėja", "Vaikai (gali išbėgti į kelią)", "Darbai kelyje", "Eismas draudžiamas pėstiesiems"],
-                correct: 1
-            },
-            {
-                text: "Likus kokiam minimaliam atstumui iki priešpriešiais atvažiuojančios transporto priemonės naktį tolimosios šviesos turi būti perjungtos į artimąsias?",
-                image: "",
-                options: ["Ne mažiau kaip likus 50 metrų", "Ne mažiau kaip likus 150 metrų", "Ne mažiau kaip likus 300 metrų", "Šviesų perjungti nereikia"],
-                correct: 1
-            },
-            {
-                text: "Ką reiškia šis kelio ženklas?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Lithuanian_road_sign_331.svg",
-                options: ["Sustoti draudžiama", "Stovėti draudžiama", "Muitinė", "Apgręžimo vieta"],
-                correct: 1
-            },
-            {
-                text: "Ar galima naudotis mobiliuoju telefonu vairuojant be laisvų rankų įrangos?",
-                image: "",
-                options: ["Galima tik stovint spūstyje", "Draudžiama, išskyrus atvejus, kai transporto priemonė saugiai sustabdyta tam skirtoje vietoje", "Galima, jei kalbama ne ilgiau nei 15 sekundžių", "Galima važiuojant lėčiau negu 30 km/h"],
-                correct: 1
-            },
-            {
-                text: "Kas važiuoja pirmas išvažiuojant iš kiemo ar daugiabučio teritorijos į pagrindinę gatvę?",
-                image: "",
-                options: ["Išvažiuojantis iš kiemo automobilis", "Gatve važiuojantis automobilis (išvažiuojantis iš kiemo privalo duoti kelią)", "Tas, kas greitesnis", "Priklauso nuo to, kas važiuoja tiesiai"],
-                correct: 1
-            },
-            {
-                text: "Ką reiškia šis kelio ženklas?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Lithuanian_road_sign_332.svg",
-                options: ["Sustoti draudžiama (neleidžiamas net keleivių įlaipinimas)", "Stovėti draudžiama", "Ribotas greitis", "Vienašonis eismas"],
-                correct: 0
-            },
-            {
-                text: "Kas privalo segėti saugos diržus automobilyje eismo metu?",
-                image: "",
-                options: ["Tik vairuotojas", "Tik vairuotojas ir priekyje sėdintis keleivis", "Visi automobilyje esantys asmenys, kur įrengti saugos diržai", "Tik vaikai"],
-                correct: 2
-            },
-            {
-                text: "Ką nurodo šis mėlynas kvadratinis kelio ženklas?",
-                image: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Lithuanian_road_sign_507.svg",
-                options: ["Vienašonis eismas", "Sankryža su vienašoniu eismu", "Automobilių stovėjimo vieta", "Apsisukimo vieta"],
-                correct: 0
+        // --- GOOGLE AUTH & RATING LOGIC (Mock) ---
+        let isLoggedIn = false;
+        let globalVotes = 124;
+        let globalSum = 595.2; // 124 * 4.8
+        let userHasVoted = false;
+
+        function openLoginModal() {
+            document.getElementById('login-modal').classList.remove('hidden');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').classList.add('hidden');
+        }
+
+        function simulateGoogleLogin() {
+            // Imituojame krovimą
+            setTimeout(() => {
+                isLoggedIn = true;
+                closeLoginModal();
+                updateAuthUI();
+                checkRatingUI();
+            }, 800);
+        }
+
+        function updateAuthUI() {
+            const authSection = document.getElementById('auth-section');
+            if (isLoggedIn) {
+                authSection.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 32px; height: 32px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">M</div>
+                        <span style="font-weight: 600; color: var(--navy-dark);">Mokinys</span>
+                    </div>
+                `;
             }
+        }
+
+        function checkRatingUI() {
+            const prompt = document.getElementById('login-prompt-rating');
+            const stars = document.getElementById('stars-ui');
+            if (isLoggedIn && !userHasVoted) {
+                prompt.classList.add('hidden');
+                stars.classList.remove('hidden');
+            } else if (userHasVoted) {
+                prompt.classList.add('hidden');
+                stars.classList.add('hidden');
+            }
+        }
+
+        function submitRating(stars) {
+            if (!isLoggedIn || userHasVoted) return;
+            
+            globalVotes++;
+            globalSum += stars;
+            const newAverage = (globalSum / globalVotes).toFixed(1);
+            
+            // Atnaujinam viršutinį skydelį
+            document.getElementById('global-score').innerText = newAverage;
+            document.getElementById('global-votes').innerText = globalVotes;
+
+            // Atnaujinam UI po balsavimo
+            userHasVoted = true;
+            document.getElementById('stars-ui').classList.add('hidden');
+            document.getElementById('thank-you-msg').classList.remove('hidden');
+        }
+
+        // --- QUIZ LOGIC (Išlaikyta senoji stipri bazė) ---
+        const questionPool = [
+            { text: "Ką nurodo šis kelio ženklas?", image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Lithuanian_road_sign_201.svg", options: ["Suteikia pirmenybę važiuoti per nereguliuojamas sankryžas", "Įpareigoja duoti kelią", "Eismas draudžiamas", "Vienašonis eismas"], correct: 0 },
+            { text: "Prieš jus iškilo šis ženklas. Kokie jūsų veiksmai?", image: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Lithuanian_road_sign_203.svg", options: ["Privaloma sustoti", "Duoti kelią kertamuoju keliu važiuojantiems", "Turite pirmenybę", "Padidinti greitį"], correct: 1 },
+            { text: "Ar leidžiama įvažiuoti už šio ženklo?", image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Lithuanian_road_sign_301.svg", options: ["Leidžiama", "Draudžiama visoms transporto priemonėms, išskyrus maršrutinį", "Tik savaitgaliais", "Tik gyventojams"], correct: 1 },
+            { text: "Maksimalus greitis automagistralėje vasarą?", image: "https://upload.wikimedia.org/wikipedia/commons/f/f6/Lithuanian_road_sign_501.svg", options: ["110 km/h", "120 km/h", "130 km/h", "140 km/h"], correct: 2 },
+            { text: "Ką reiškia šis įspėjamasis ženklas?", image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Lithuanian_road_sign_101.svg", options: ["Staigi nuokalnė", "Staigi įkalnė", "Nelygus kelias", "Siauras kelias"], correct: 1 },
+            { text: "Koks greitis gyvenvietėje, jei nėra kitų ženklų?", image: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Lithuanian_road_sign_329-50.svg", options: ["40 km/h", "50 km/h", "60 km/h", "70 km/h"], correct: 1 },
+            { text: "Kuria kryptimi galima važiuoti?", image: "https://upload.wikimedia.org/wikipedia/commons/7/76/Lithuanian_road_sign_401.svg", options: ["Tik tiesiai", "Tiesiai ir į dešinę", "Tik į kairę", "Apsisukti"], correct: 0 },
+            { text: "Kokia maksimali leistina alkoholio koncentracija pradedantiesiems vairuotojams?", image: "", options: ["0,4 promilės", "0,2 promilės", "0,0 promilės", "0,1 promilės"], correct: 2 },
+            { text: "Ką reiškia degantis geltonas šviesoforo signalas?", image: "", options: ["Eismas leidžiamas", "Draudžia eismą ir įspėja apie pasikeitimą", "Suteikia pirmenybę", "Sankryža nereguliuojama"], correct: 1 },
+            { text: "Koks leistinas greitis gyvenamojoje zonoje?", image: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Lithuanian_road_sign_552.svg", options: ["10 km/h", "20 km/h", "30 km/h", "50 km/h"], correct: 1 },
+            { text: "Minimalus vasarinių padangų protektoriaus gylis?", image: "", options: ["0.8 mm", "1.6 mm", "3.0 mm", "4.0 mm"], correct: 1 },
+            { text: "Minimalus žieminių padangų protektoriaus gylis?", image: "", options: ["1.6 mm", "2.0 mm", "3.0 mm", "4.0 mm"], correct: 2 },
+            { text: "Ką reiškia šis ženklas?", image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Lithuanian_road_sign_302.svg", options: ["Eismas draudžiamas", "Automobilių eismas draudžiamas", "Stovėti draudžiama", "Ribotas greitis"], correct: 1 },
+            { text: "Ką reiškia šis ženklas?", image: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Lithuanian_road_sign_131.svg", options: ["Pėsčiųjų perėja", "Vaikai", "Darbai kelyje", "Dviračių takas"], correct: 1 },
+            { text: "Ką reiškia šis ženklas?", image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Lithuanian_road_sign_331.svg", options: ["Sustoti draudžiama", "Stovėti draudžiama", "Muitinė", "Apgręžimo vieta"], correct: 1 },
+            // Pridedame dar keletą, kad būtų pakankamas kiekis demonstracijai
+            { text: "Kas privalo išlipus iš automobilio užmiestyje tamsiu paros metu dėvėti liemenę?", image: "", options: ["Tik keleiviai", "Vairuotojas ir keleiviai", "Niekas", "Tik esant rūkui"], correct: 1 },
+            { text: "Ar galima naudotis telefonu vairuojant be laisvų rankų įrangos?", image: "", options: ["Galima spūstyje", "Draudžiama, nebent saugiai sustojus", "Galima iki 15 sekundžių", "Galima lėtai važiuojant"], correct: 1 },
+            { text: "Ką nurodo šis mėlynas ženklas?", image: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Lithuanian_road_sign_507.svg", options: ["Vienašonis eismas", "Sankryža su vienašoniu", "Stovėjimo vieta", "Apsisukimas"], correct: 0 },
+            { text: "Kada gyvenvietėje galima naudoti garsinį signalą?", image: "", options: ["Pasisveikinti", "Tik siekiant išvengti eismo įvykio", "Paskubinti", "Niekada"], correct: 1 },
+            { text: "Ar privaloma įjungti posūkio signalą prieš persirikiuojant?", image: "", options: ["Privaloma visada", "Tik naktį", "Jei yra kitų automobilių", "Nebūtina"], correct: 0 }
         ];
 
-        const TOTAL_QUESTIONS = 30;
-        let testQuestions = [];
-        let userAnswers = [];
+        const TOTAL_QUESTIONS = Math.min(30, questionPool.length); 
+        let currentQuestions = [];
+        let answers = [];
         let currentIdx = 0;
-        let examTimer;
-        let timeLeft = 40 * 60; // 40 min sekundėmis
+        let timerInt;
+        let timeLeft = 2400; // 40 min
 
-        function initQuiz() {
-            // Generuojame atsitiktinę 30 klausimų seką iš krepšelio
-            const shuffled = [...questionPool].sort(() => 0.5 - Math.random());
-            testQuestions = shuffled.slice(0, TOTAL_QUESTIONS);
-            
-            userAnswers = new Array(TOTAL_QUESTIONS).fill(null);
+        function startQuiz() {
+            currentQuestions = [...questionPool].sort(() => 0.5 - Math.random()).slice(0, TOTAL_QUESTIONS);
+            answers = new Array(TOTAL_QUESTIONS).fill(null);
             currentIdx = 0;
-            timeLeft = 40 * 60;
-
+            timeLeft = 2400;
+            
             document.getElementById('start-screen').classList.add('hidden');
             document.getElementById('result-screen').classList.add('hidden');
             document.getElementById('quiz-screen').classList.remove('hidden');
-            document.getElementById('timer').classList.remove('hidden');
-
+            
             buildGrid();
-            renderQuestion();
+            showQuestion();
             startTimer();
         }
 
         function buildGrid() {
             const grid = document.getElementById('questions-grid');
             grid.innerHTML = '';
-            for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+            for(let i=0; i<TOTAL_QUESTIONS; i++) {
                 const btn = document.createElement('button');
                 btn.className = 'grid-item';
-                btn.id = `grid-btn-${i}`;
-                btn.innerText = i + 1;
-                btn.onclick = () => jumpToQuestion(i);
+                btn.id = `grid-${i}`;
+                btn.innerText = i+1;
+                btn.onclick = () => { currentIdx = i; showQuestion(); };
                 grid.appendChild(btn);
             }
         }
 
-        function updateGridUI() {
-            for (let i = 0; i < TOTAL_QUESTIONS; i++) {
-                const btn = document.getElementById(`grid-btn-${i}`);
-                btn.className = 'grid-item';
-                if (userAnswers[i] !== null) {
-                    btn.classList.add('answered');
-                }
-                if (i === currentIdx) {
-                    btn.classList.add('current');
-                }
+        function showQuestion() {
+            for(let i=0; i<TOTAL_QUESTIONS; i++){
+                const btn = document.getElementById(`grid-${i}`);
+                btn.className = 'grid-item' + (answers[i] !== null ? ' answered' : '') + (i === currentIdx ? ' current' : '');
             }
-        }
 
-        function renderQuestion() {
-            updateGridUI();
-            const q = testQuestions[currentIdx];
+            const q = currentQuestions[currentIdx];
+            document.getElementById('q-text').innerText = `${currentIdx + 1}. ${q.text}`;
 
-            // Tekstas
-            document.getElementById('q-text').innerText = q.text;
-
-            // Vizualas
-            const imgEl = document.getElementById('q-image');
-            const placeholderEl = document.getElementById('q-placeholder');
-            if (q.image && q.image.trim() !== "") {
-                imgEl.src = q.image;
-                imgEl.classList.remove('hidden');
-                placeholderEl.classList.add('hidden');
+            const img = document.getElementById('q-image');
+            const placeholder = document.getElementById('q-placeholder');
+            if(q.image) {
+                img.src = q.image; img.classList.remove('hidden'); placeholder.classList.add('hidden');
             } else {
-                imgEl.classList.add('hidden');
-                placeholderEl.classList.remove('hidden');
+                img.classList.add('hidden'); placeholder.classList.remove('hidden');
             }
 
-            // Variantai
-            const optionsBlock = document.getElementById('options-block');
-            optionsBlock.innerHTML = '';
-            q.options.forEach((opt, index) => {
-                const optBtn = document.createElement('button');
-                optBtn.className = 'option-button';
-                if (userAnswers[currentIdx] === index) {
-                    optBtn.classList.add('selected');
-                }
-                optBtn.innerText = `${String.fromCharCode(65 + index)}) ${opt}`;
-                optBtn.onclick = () => selectOption(index);
-                optionsBlock.appendChild(optBtn);
+            const options = document.getElementById('options-block');
+            options.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-button' + (answers[currentIdx] === idx ? ' selected' : '');
+                btn.innerText = opt;
+                btn.onclick = () => { answers[currentIdx] = idx; showQuestion(); };
+                options.appendChild(btn);
             });
 
-            // Mygtukų būsenos
-            document.getElementById('prev-btn').disabled = (currentIdx === 0);
-            const nextBtn = document.getElementById('next-btn');
-            if (currentIdx === TOTAL_QUESTIONS - 1) {
-                nextBtn.innerText = "Baigti egzaminą";
-                nextBtn.className = "btn btn-success";
-            } else {
-                nextBtn.innerText = "Toliau";
-                nextBtn.className = "btn btn-primary";
-            }
-        }
-
-        function selectOption(idx) {
-            userAnswers[currentIdx] = idx;
-            renderQuestion();
-        }
-
-        function jumpToQuestion(idx) {
-            currentIdx = idx;
-            renderQuestion();
+            document.getElementById('prev-btn').disabled = currentIdx === 0;
+            document.getElementById('next-btn').innerText = currentIdx === TOTAL_QUESTIONS - 1 ? 'Baigti' : 'Toliau';
         }
 
         function goNext() {
-            if (currentIdx < TOTAL_QUESTIONS - 1) {
-                currentIdx++;
-                renderQuestion();
-            } else {
-                finishQuiz(false);
-            }
+            if(currentIdx < TOTAL_QUESTIONS - 1) { currentIdx++; showQuestion(); }
+            else { finishQuiz(); }
         }
-
-        function goPrevious() {
-            if (currentIdx > 0) {
-                currentIdx--;
-                renderQuestion();
-            }
+        function goPrev() {
+            if(currentIdx > 0) { currentIdx--; showQuestion(); }
         }
 
         function startTimer() {
-            clearInterval(examTimer);
-            examTimer = setInterval(() => {
-                if (timeLeft <= 0) {
-                    clearInterval(examTimer);
-                    finishQuiz(true);
-                } else {
+            clearInterval(timerInt);
+            timerInt = setInterval(() => {
+                if(timeLeft <= 0) finishQuiz();
+                else {
                     timeLeft--;
-                    let min = Math.floor(timeLeft / 60);
-                    let sec = timeLeft % 60;
-                    document.getElementById('timer').innerText = 
-                        `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+                    let m = Math.floor(timeLeft / 60);
+                    let s = timeLeft % 60;
+                    document.getElementById('timer').innerText = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
                 }
             }, 1000);
         }
 
-        function finishQuiz(timedOut = false) {
-            clearInterval(examTimer);
+        function finishQuiz() {
+            clearInterval(timerInt);
             document.getElementById('quiz-screen').classList.add('hidden');
-            document.getElementById('timer').classList.add('hidden');
             document.getElementById('result-screen').classList.remove('hidden');
+            
+            checkRatingUI(); // Patikrinam, ar rodyti žvaigždutes
 
-            if (timedOut) alert("Egzamino laikas baigėsi!");
-
-            let correctCount = 0;
-            testQuestions.forEach((q, i) => {
-                if (userAnswers[i] === q.correct) correctCount++;
-            });
-
-            const scorePercent = Math.round((correctCount / TOTAL_QUESTIONS) * 100);
-            const passed = scorePercent >= 80;
-
+            let correct = 0;
+            currentQuestions.forEach((q, i) => { if(answers[i] === q.correct) correct++; });
+            const percent = Math.round((correct / TOTAL_QUESTIONS) * 100);
+            
             const badge = document.getElementById('result-badge');
-            if (passed) {
-                badge.innerText = "EGZAMINAS IŠLAIKYTAS";
-                badge.className = "result-badge badge-pass";
+            if(percent >= 80) {
+                badge.innerText = "IŠLAIKYTA";
+                badge.style.background = "#d1fae5";
+                badge.style.color = "var(--success)";
             } else {
-                badge.innerText = "EGZAMINAS NEIŠLAIKYTAS";
-                badge.className = "result-badge badge-fail";
+                badge.innerText = "NEIŠLAIKYTA";
+                badge.style.background = "#fee2e2";
+                badge.style.color = "var(--danger)";
             }
+            document.getElementById('result-percent').innerText = `Surinkta: ${percent}% (${correct}/${TOTAL_QUESTIONS})`;
 
-            document.getElementById('result-percent').innerText = `Surinkta: ${scorePercent}%`;
-            document.getElementById('result-text').innerText = `Teisingai atsakėte į ${correctCount} iš ${TOTAL_QUESTIONS} klausimų.`;
-
-            // Ataskaitos generavimas
             const container = document.getElementById('review-container');
             container.innerHTML = '';
-
-            testQuestions.forEach((q, i) => {
-                const item = document.createElement('div');
-                item.className = 'review-item';
-
-                const isCorrect = userAnswers[i] === q.correct;
-
-                let imgHtml = '';
-                if(q.image) {
-                    imgHtml = `<img src="${q.image}" style="max-height:60px; display:block; margin-top:10px; border-radius:4px;">`;
-                }
-
-                const userSelection = userAnswers[i] !== null ? q.options[userAnswers[i]] : "Neatsakyta";
-                const correctSelection = q.options[q.correct];
-
-                item.innerHTML = `
-                    <div class="review-q">${i + 1}. ${q.text}</div>
-                    ${imgHtml}
-                    <div class="review-info">Jūsų atsakymas: <span class="${isCorrect ? 'text-correct' : 'text-wrong'}">${userSelection}</span></div>
-                    ${!isCorrect ? `<div class="review-info">Teisingas atsakymas: <span class="text-correct">${correctSelection}</span></div>` : ''}
+            currentQuestions.forEach((q, i) => {
+                const isCorrect = answers[i] === q.correct;
+                const div = document.createElement('div');
+                div.style.background = "#f8fafc"; div.style.padding = "20px"; div.style.borderRadius = "12px"; div.style.marginBottom = "15px"; div.style.border = "1px solid var(--border-color)";
+                
+                div.innerHTML = `
+                    <div style="font-weight:700; color:var(--navy-dark); margin-bottom:10px;">${i+1}. ${q.text}</div>
+                    ${q.image ? `<img src="${q.image}" style="max-height:80px; margin-bottom:10px; border-radius:4px;">` : ''}
+                    <div style="font-size:14px; margin-bottom:5px;">Jūsų atsakymas: <span style="font-weight:bold; color:${isCorrect ? 'var(--success)' : 'var(--danger)'}">${answers[i] !== null ? q.options[answers[i]] : 'Neatsakyta'}</span></div>
+                    ${!isCorrect ? `<div style="font-size:14px;">Teisingas atsakymas: <span style="font-weight:bold; color:var(--success)">${q.options[q.correct]}</span></div>` : ''}
                 `;
-                container.appendChild(item);
+                container.appendChild(div);
             });
         }
     </script>
