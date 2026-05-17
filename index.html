@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVKET - Premium KET Testavimo Platforma</title>
+    <title>MVKET - Premium KET Testavimo Platforma (Oficiali terminologija)</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
     <style>
         :root {
@@ -276,7 +276,7 @@
     <main class="main-wrapper">
         <div id="start-screen" class="screen-card">
             <h2>Oficialus KET Teorijos Egzaminas</h2>
-            <p>Svetainė pritaikyta maksimaliam akių komfortui su giliais šešėliais bei profesionalia animuota aplinka. Testą sudaro 30 autorinių klausimų, apimančių sudėtingas sankryžų situacijas. Egzaminui skiriama 40 minučių.</p>
+            <p>Svetainė atnaujinta integruojant banguojančias juostas bei pritaikyta maksimaliam akių komfortui. Testą sudaro 30 autorinių klausimų, suformuluotų pagal tikslią ir oficialią LR Kelių eismo taisyklių įstatyminę terminologiją. Egzaminui skiriama 40 minučių.</p>
             <button class="btn btn-primary" style="font-size: 18px; padding: 18px 46px;" onclick="startQuiz()">Pradėti KET egzaminą</button>
         </div>
 
@@ -419,167 +419,167 @@
             zenklasApsisukimas: `<svg viewBox="0 0 100 100" width="150"><rect x="5" y="5" width="90" height="90" rx="10" fill="#2563eb" stroke="#fff" stroke-width="2"/><path d="M 50 80 L 50 40 Q 50 20 70 20 Q 80 20 80 35 L 80 45 M 65 40 L 80 55 L 95 40" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>`
         };
 
-        // --- 30 KLAUSIMŲ DUOMENŲ BAZĖ ---
+        // --- 30 KLAUSIMŲ DUOMENŲ BAZĖ (OFICIALI TERMINOLOGIJA) ---
         const questionPool = [
             { 
-                text: "Kokia tvarka transporto priemonės važiuos per šią lygiareikšmę sankryžą?", 
+                text: "Kokia tvarka transporto priemonės važiuos per šią nereguliuojamą lygiareikšmių kelių sankryžą?", 
                 svg: advancedIntersections.lygiareiksme, 
-                options: ["Automobilis 1 važiuos pirmas, automobilis 2 - antras", "Automobilis 2 važiuos pirmas, automobilis 1 - antras", "Abu automobiliai važiuos vienu metu pagal tarpusavio susitarimą"], 
+                options: ["Automobilis 1 važiuos pirmas, automobilis 2 - antras", "Automobilis 2 važiuos pirmas, automobilis 1 - antras", "Vairuotojai privalo vadovautis tarpusavio susitarimu"], 
                 correct: 1,
-                explanation: "Teisingas atsakymas: Automobilis 2 važiuoja pirmas. Pagal KET 154 punktą (lygiareikšmių kelių sankryža), vairuotojas privalo duoti kelią iš dešinės artėjančioms transporto priemonėms."
+                explanation: "Pagal KET 154 punktą: Nereguliuojamoje lygiareikšmių kelių sankryžoje vairuotojas privalo duoti kelią iš dešinės artėjančioms transporto priemonėms. Kadangi automobiliui 1 iš dešinės artėja automobilis 2, pirmenybę turi automobilis 2."
             },
             { 
-                text: "Kokia tvarka transporto priemonės pravažiuos šią prioriteto ženklais reguliuojamą sankryžą?", 
+                text: "Kokia eismo dalyvių judėjimo tvarka nurodyta šioje prioriteto ženklais reguliuojamoje sankryžoje?", 
                 svg: advancedIntersections.prioriteto, 
-                options: ["Automobilis 2, nes jis yra iš dešinės pusės", "Automobilis 1, nes prieš jį įrengtas Ženklas Nr. 201 „Pagrindinis kelias“", "Vairuotojai turi vadovautis abipusiu mandagumu"], 
+                options: ["Automobilis 2 pravažiuos pirmas, kadangi jis artėja iš dešinės pusės", "Automobilis 1 pravažiuos pirmas, kadangi jis važiuoja keliu, pažymėtu ženklu Nr. 201 „Pagrindinis kelias“", "Vairuotojai sankryžą kerta abipusiu susitarimu"], 
                 correct: 1,
-                explanation: "Teisingas atsakymas: Automobilis 1 važiuoja pirmas. Šalutiniu keliu važiuojantis vairuotojas (Automobilis 2, prieš kurį pastatytas Ženklas Nr. 203 „Duoti kelią“) privalo duoti kelią transporto priemonėms, artėjančioms pagrindiniu keliu."
+                explanation: "Pagal KET 155 punktą: Šalutiniu keliu važiuojantis vairuotojas privalo duoti kelią transporto priemonėms, artėjančioms prie sankryžos pagrindiniu keliu. Prieš automobilį 2 pastatytas ženklas Nr. 203 „Duoti kelią“."
             },
             { 
-                text: "Automobilis 1 sankryžoje suka į kairę, o Automobilis 2 artėja priešpriešais ir važiuoja tiesiai. Kas tenta pirmenybę?", 
+                text: "Automobilis 1 sankryžoje atlieka posūkio į kairę manevrą, o Automobilis 2 artėja priešpriešine kryptimi tiesiai. Kas turi važiavimo pirmenybę?", 
                 svg: advancedIntersections.kairysis, 
-                options: ["Automobilis 1, nes jis jau atliko posūkio manevrą", "Automobilis 2, nes važiuoja priešpriešiais tiesiai", "Pirmenybė priklauso tam, kuris pirmas įvažiavo į sankryžą"], 
+                options: ["Automobilis 1, kadangi jis pirmasis įvažiavo į važiuojamųjų dalių sankirtą", "Automobilis 2, vadovaujantis priešpriešinio eismo pranašumo taisykle", "Pirmenybė nustatoma pagal abipusį eismo dalyvių mandagumo principą"], 
                 correct: 1,
-                explanation: "Teisingas atsakymas: Automobilis 2 važiuoja pirmas. Sukdamas į kairę, vairuotojas privalo duoti kelią priešpriešine kryptimi tiesiai arba į dešinę važiuojančioms transporto priemonėms."
+                explanation: "Pagal KET 158 punktą: Sukdamas į kairę (apsisukdamas), vairuotojas privalo duoti kelią transporto priemonėms, važiuojančioms priešpriešine kryptimi tiesiai arba į dešinę."
             },
             { 
-                text: "Ką nurodo šis kelio ženklas Nr. 204?", 
+                text: "Ką eismo dalyviui įsakomąja tvarka nurodo šis kelio ženklas Nr. 204?", 
                 svg: advancedIntersections.zenklasStop, 
-                options: ["Sustoti draudžiama, eismas leidžiamas nesustojus", "Ženklas „STOP“ įpareigoja sustoti prieš stop liniją, o jei jos nėra - prieš važiuojamųjų dalių kirtimą", "Ženklas reiškia, kad priekyje muitinė"], 
+                options: ["Sustoti draudžiama, eismas leidžiamas nesustojus, jeigu kelyje nėra kitų transporto priemonių", "Draudžiama važiuoti nesustojus prieš „Stop“ liniją, o jeigu jos nėra – prieš važiuojamųjų dalių kirtimą", "Nurodo, kad priekyje yra valstybės sienos apsaugos postas"], 
                 correct: 1,
-                explanation: "Teisingas atsakymas: Ženklas Nr. 204 „STOP“ draudžia važiuoti per jį nesustojus."
+                explanation: "Pagal KET priedą: Ženklas Nr. 204 „STOP“ draudžia važiuoti nesustojus prieš stop liniją, o eismo dalyvis privalo duoti kelią kertamu keliu važiuojančioms transporto priemonėms."
             },
             { 
-                text: "Ką nurodo šis mėlynas ženklas?", 
+                text: "Ką nurodo šis nurodomasis kelio ženklas?", 
                 svg: advancedIntersections.zenklasApsisukimas, 
-                options: ["Ženklas Nr. 515 „Apsisukimo vieta“ leidžia apsisukti, tačiau posūkis į kairę yra draudžiamas", "Leidžia tik posūkį į kairę", "Nurodo aklavietę kairėje pusėje"], 
+                options: ["Ženklas Nr. 515 „Apsisukimo vieta“ nurodo vietą, kurioje leidžiama apsisukti, tačiau posūkis į kairę yra draudžiamas", "Suteikia išimtinę teisę atlikti posūkio į kairę manevrą", "Žymi eismo juostą, skirtą aklavietei apvažiuoti"], 
                 correct: 0,
-                explanation: "Teisingas atsakymas: Tai Ženklas Nr. 515 „Apsisukimo vieta“. Jis leidžia tik apsisukti, posūkis į kairę – draudžiamas."
+                explanation: "Pagal KET taisyklių priedą: Ženklas Nr. 515 „Apsisukimo vieta“ leidžia tik apsisukti. Posūkis į kairę pagal šį kelio ženklą yra teisiškai draudžiamas."
             },
             {
-                text: "Koks maksimalus leistinas greitis lengviesiems automobiliams automagistralėse nuo balandžio 1 d. iki spalio 31 d.?",
+                text: "Koks yra maksimalus leistinas greitis lengviesiems automobiliams automagistralėse nuo balandžio 1 d. iki spalio 31 d.?",
                 svg: null, options: ["110 km/h", "120 km/h", "130 km/h"], correct: 2,
-                explanation: "Vasaros sezono metu (nuo balandžio 1 d. iki spalio 31 d.) automagistralėse lengviesiems automobiliams leidžiama važiuoti 130 km/h greičiu."
+                explanation: "Pagal KET 135.1 punktą: Nuo balandžio 1 d. iki spalio 31 d. lengviesiems automobiliams automagistralėse leidžiama važiuoti ne didesniu kaip 130 km/h greičiu."
             },
             {
-                text: "Ką reiškia mirksintis žalias šviesoforo signalas?",
-                svg: null, options: ["Eismas draudžiamas, privaloma sustoti", "Eismas leidžiamas, bet jo laikas baigiasi ir netrukus bus įjungtas draudžiamasis signalas", "Šviesoforas sugedo, reikia vadovautis ženklais"], correct: 1,
-                explanation: "Mirksintis žalias signalas leidžia eismą ir įspėja, kad netrukus bus įjungtas geltonas signalas."
+                text: "Ką eismo dalyviams nurodo mirksintis žalias šviesoforo signalas?",
+                svg: null, options: ["Eismas draudžiamas, transporto priemonėms privaloma sustoti", "Leidžia eismą ir įspėja, kad jo laikas baigiasi ir netrukus bus įjungtas draudžiamasis signalas", "Nurodo, kad šviesoforų objektas veikia gedimo režimu"], correct: 1,
+                explanation: "Pagal KET 73.2 punktą: Mirksintis žalias signalas leidžia eismą ir įspėja, kad jo laikas baigiasi ir netrukus bus įjungtas draudžiamasis signalas."
             },
             {
-                text: "Koks maksimalus leistinas neblaivumas (alkoholio koncentracija) pradedantiesiems vairuotojams (turintiems iki 2 metų stažą)?",
+                text: "Kokia maksimali leistina etilo alkoholio koncentracija kraujyje (neblaivumas) taikoma pradedantiesiems vairuotojams?",
                 svg: null, options: ["0,0 promilės", "0,2 promilės", "0,4 promilės"], correct: 0,
-                explanation: "Pradedantieji vairuotojai, taip pat taksi, autobusų, motociklų ir krovininių auto vairuotojai privalo būti visiškai blaivūs (0,0 promilės)."
+                explanation: "Pagal LR SEAKĮ: Pradedantieji vairuotojai (stažas iki 2 metų) transporto priemones gali vairuoti tik būdami visiškai blaivūs – jiems taikoma 0,0 promilės riba."
             },
             {
                 text: "Ar leidžiama lenkti transporto priemones nereguliuojamoje sankryžoje, važiuojant šalutiniu keliu?",
-                svg: null, options: ["Leidžiama, jei nėra artėjančių automobilių", "Draudžiama", "Leidžiama tik lenkiant dviratininkus"], correct: 1,
-                explanation: "Lenkti sankryžose draudžiama, išskyrus atvejus, kai lenkiama pagrindiniame kelyje, kurio kirtimai nepažymėti prioriteto ženklais."
+                svg: null, options: ["Leidžiama, jeigu priešpriešinė eismo juosta yra laisva", "Draudžiama", "Leidžiama tik lenkiant dviračius ir motociklus be priekabos"], correct: 1,
+                explanation: "Pagal KET 141.2 punktą: Lenkti draudžiama nereguliuojamoje sankryžoje, išskyrus pagrindiniame kelyje, pažymėtame atitinkamais kelio ženklais."
             },
             {
-                text: "Ką nurodo geltona ištisinė linija ant važiuojamosios dalies krašto arba šaligatvio bortelio?",
-                svg: null, options: ["Draudžiama sustoti ir stovėti", "Draudžiama tik stovėti, bet sustoti galima", "Žymi pėsčiųjų zoną"], correct: 0,
-                explanation: "Geltona ištisinė linija žymi vietą, kur draudžiama transporto priemonėms sustoti ir stovėti."
+                text: "Ką eisme žymi horizontalaus ženklinimo geltona ištisinė linija, nubrėžta prie važiuojamosios dalies krašto?",
+                svg: null, options: ["Žymi vietą, kur draudžiama transporto priemonėms sustoti ir stovėti", "Žymi vietą, kur draudžiama tik stovėti, bet sustoti leidžiama", "Nurodo specialią maršrutinio transporto eismo juostą"], correct: 0,
+                explanation: "Pagal KET priedą (Horiz. ženklinimas 1.4): Geltona ištisinė linija žymi vietą, kur draudžiama transporto priemonėms sustoti ir stovėti."
             },
             {
-                text: "Kokiu minimaliu atstumu laiko atžvilgiu rekomenduojama važiuoti už kitos transporto priemonės gyvenvietėje?",
-                svg: null, options: ["Ne mažiau kaip per 1 sekundę", "Ne mažiau kaip per 2 sekundes", "Ne mažiau kaip per 5 sekundes"], correct: 1,
-                explanation: "KET rekomenduoja išlaikyti ne mažesnį kaip 2 sekundžių (ne gyvenvietėse - 3 sekundžių) atstumą iki priekyje važiuojančio auto."
+                text: "Kokį laiko atstumą (sekundėmis) rekomenduojama išlaikyti iki priekyje važiuojančios transporto priemonės gyvenvietėse?",
+                svg: null, options: ["Ne mažesnį kaip 1 sekundės laiko tarpą", "Ne mažesnį kaip 2 sekundžių laiko tarpą", "Ne mažesnį kaip 5 sekundžių laiko tarpą"], correct: 1,
+                explanation: "Pagal KET 127 punktą: Vairuotojas, atsižvelgdamas į greitį, privalo išlaikyti tokį atstumą, kad išvengtų susidūrimo. Rekomenduojamas atstumas sausame kelyje – ne mažiau kaip 2 sekundės."
             },
             {
-                text: "Kuriose vietose transporto priemonėms yra griežtai draudžiama apsisukti?",
-                svg: null, options: ["Geležinkelio pervažose, tuneliuose, ant tiltų, estakadų, viadukų ir po jais", "Sankryžose, kuriose yra šviesoforai", "Keliuose su viena eismo juosta"], correct: 0,
-                explanation: "Pagal KET apsisukti draudžiama geležinkelio pervažose, tuneliuose, ant tiltų, viadukų, estakadų ir po jais, taip pat riboto matomumo vietose."
+                text: "Kuriose iš išvardintų vietų transporto priemonėms yra draudžiama apsisukti?",
+                svg: null, options: ["Geležinkelio pervažose, tuneliuose, ant tiltų, estakadų, viadukų ir po jais", "Sankryžose, kuriose įrengtas šviesoforinis reguliavimas", "Keliuose, kurie turi tik po vieną eismo juostą kiekviena kryptimi"], correct: 0,
+                explanation: "Pagal KET 94 punktą: Apsisukti draudžiama geležinkelio pervažose, tuneliuose, ant tiltų, viadukų, estakadų ir po jais, taip pat riboto matomumo vietose."
             },
             {
-                text: "Kas turi pirmenybę, kai maršrutinis transportas (autobusas) pradeda važiuoti iš pažymėtos stotelės gyvenvietėje?",
-                svg: null, options: ["Kiti vairuotojai privalo duoti kelią autobusui", "Autobuso vairuotojas privalo praleisti visus automobilius", "Pirmenybė nustatoma pagal dešinės rankos taisyklę"], correct: 0,
-                explanation: "Gyvenvietėse vairuotojai privalo duoti kelią maršrutiniam transportui, pradedančiam važiuoti iš pažymėtos stotelės."
+                text: "Kas turi pirmenybę, kai maršrutinis transportas gyvenvietėje pradeda važiuoti iš pažymėtos stotelės?",
+                svg: null, options: ["Kiti vairuotojai privalo duoti kelią maršrutiniam transportui", "Maršrutinio transporto vairuotojas privalo praleisti visas tiesiai važiuojančias TP", "Eismas vyksta vadovaujantis lygiareikšmio išvažiavimo principu"], correct: 0,
+                explanation: "Pagal KET 181 punktą: Gyvenvietėse vairuotojai privalo duoti kelią maršrutiniam transportui, pradedančiam važiuoti iš pažymėtos stotelės."
             },
             {
-                text: "Kokiu maksimaliu greičiu leidžiama vilkti standžia ar lanksčia jungtimi sugedusią transporto priemonę?",
-                svg: null, options: ["Ne didesniu kaip 50 km/h greičiu", "Ne didesniu kaip 70 km/h greičiu", "Greitis neribojamas, jei jungtis standi"], correct: 0,
-                explanation: "Vilkti transporto priemones bet kokiais keliais leidžiama ne didesniu kaip 50 km/h greičiu."
+                text: "Kokiu maksimaliu greičiu leidžiama vilkti motorinę transporto priemonę standžia ar lanksčia jungtimi?",
+                svg: null, options: ["Ne didesniu kaip 50 km/h greičiu", "Ne didesniu kaip 70 km/h greičiu", "Greitis neribojamas, jeigu jungtis yra standi"], correct: 0,
+                explanation: "Pagal KET 140 punktą: Vilkti transporto priemones motorine transporto priemonė leidžiama ne didesniu kaip 50 km/h greičiu."
             },
             {
-                text: "Ar privaloma prisegti saugos diržus keleiviams, sėdintiems ant galinių automobilio sėdynių?",
-                svg: null, options: ["Privaloma visada, jei tik įrengti saugos diržai", "Neprivaloma gyvenvietėse", "Neprivaloma, jei keleivis pilnametis"], correct: 0,
-                explanation: "Visi transporto priemonėje važiuojantys keleiviai privalo būti prisisegę saugos diržais, jei jie yra įrengti."
+                text: "Ar privaloma prisegti saugos diržus keleiviams, sėdintiems transporto priemonės galinėse sėdynėse?",
+                svg: null, options: ["Privaloma visais atvejais, jeigu transporto priemonėje yra įrengti saugos diržai", "Neprivaloma, jeigu automobilis važiuoja gyvenvietėje", "Neprivaloma pilnamečiams keleiviams"], correct: 0,
+                explanation: "Pagal KET 196 punktą: Važiuodami transporto priemone su įrengtais saugos diržais, vairuotojas ir keleiviai privalo būti juos prisisegę."
             },
             {
-                text: "Ką reiškia reguliuotojo vertikaliai į viršų iškelta ranka?",
-                svg: null, options: ["Eismas leidžiamas visomis kryptimis", "Vasiems eismo dalyviams draudžiama judėti; privaloma sustoti", "Sustoti turi tik pėstieji"], correct: 1,
-                explanation: "Vertikaliai pakelta ranka reiškia signalą „Dėmesio, eismas draudžiamas“. Visi privalo sustoti."
+                text: "Ką eismo dalyviams nurodo reguliuotojo vertikaliai į viršų iškelta ranka?",
+                svg: null, options: ["Eismas leidžiamas visomis kryptimis", "Visiems eismo dalyviams draudžiama judėti; privaloma sustoti", "Sustoti privalo tik pėstieji"], correct: 1,
+                explanation: "Pagal KET 77.1 punktą: Vertikaliai aukštyn iškelta ranka reiškia signalą, kuris draudžia judėti visiems eismo dalyviams."
             },
             {
-                text: "Kokiu atstumu iki gyvenvietės pradžios statomi įspėjamieji kelio ženklai?",
+                text: "Kokiu atstumu iki pavojingo ruožo pradžios gyvenvietėse statomi įspėjamieji kelio ženklai?",
                 svg: null, options: ["10-30 metrų atstumu", "50-100 metrų atstumu", "150-300 metrų atstumu"], correct: 1,
-                explanation: "Gyvenvietėse įspėjamieji kelio ženklai statomi likus 50-100 metrų iki pavojingo ruožo pradžios."
+                explanation: "Pagal KET priedą: Gyvenvietėse įspėjamieji kelio ženklai statomi likus 50-100 metrų iki pavojingo kelio ruožo pradžios."
             },
             {
-                text: "Kokiu atstumu ne gyvenvietėse statomi įspėjamieji kelio ženklai?",
+                text: "Kokiu atstumu iki pavojingo ruožo pradžios ne gyvenvietėse statomi įspėjamieji kelio ženklai?",
                 svg: null, options: ["50-100 metrų atstumu", "150-300 metrų atstumu", "400-600 metrų atstumu"], correct: 1,
-                explanation: "Ne gyvenvietėse įspėjamieji ženklai statomi likus 150-300 metrų, nes automobilių greičiai yra didesni."
+                explanation: "Pagal KET priedą: Ne gyvenvietėse įspėjamieji kelio ženklai statomi likus 150-300 metrų iki pavojingo kelio ruožo pradžios."
             },
             {
-                text: "Kokiu atstumu iki priešpriešiais ateinančios transporto priemonės naktį privaloma tolimąsias šviesas perjungti į artimąsias?",
+                text: "Kokiu minimaliu atstumu iki priešpriešiais artėjančios transporto priemonės naktį tolimosios šviesos turi būti perjungtos į artimąsias?",
                 svg: null, options: ["Likus ne mažiau kaip 50 metrų", "Likus ne mažiau kaip 150 metrų", "Likus ne mažiau kaip 300 metrų"], correct: 1,
-                explanation: "Tolimosios šviesos turi būti perjungtos į artimąsias likus ne mažiau kaip 150 m iki priešpriešinės transporto priemonės."
+                explanation: "Pagal KET 99.1 punktą: Tolimosios šviesos turi būti perjungtos į artimąsias likus ne mažiau kaip 150 metrų iki artėjančios transporto priemonės."
             },
             {
-                text: "Kokiu minimaliu atstumu prieš pėsčiųjų perėją leidžiama sustoti ar pastatyti automobilį stovėjimui?",
-                svg: null, options: ["Sustoti galima iškart už perėjos, bet prieš ją turi būti bent 5 metrų tarpas", "Ne arčiau kaip 10 metrų prieš perėją", "Atstumas nėra reglamentuojamas"], correct: 0,
-                explanation: "Draudžiama sustoti ir stovėti pėsčiųjų perėjose ir arčiau kaip 5 metrai prieš jas."
+                text: "Kokiu minimaliu atstumu prieš pėsčiųjų perėją transporto priemonėms leidžiama sustoti ar stovėti?",
+                svg: null, options: ["Ne arčiau kaip 5 metrų atstumu prieš pėsčiųjų perėją", "Ne arčiau kaip 10 metrų atstumu prieš pėsčiųjų perėją", "Sustojimo atstumas prieš perėją nėra reglamentuojamas"], correct: 0,
+                explanation: "Pagal KET 150.4 punktą: Draudžiama sustoti ir stovėti pėsčiųjų perėjose ir arčiau kaip 5 metrai prieš jas."
             },
             {
-                text: "Ką privalo daryti vairuotojas, išgirdęs garsinį signalą ir pamatęs artėjančią transporto priemonę su įjungtais mėlynais ir raudonais švyturėliais?",
-                svg: null, options: ["Padidinti greitį ir kuo greičiau atlaisvinti sankryžą", "Sustoti dešiniajame kelkraštyje (jei jo nėra – prie važiuojamosios dalies krašto)", "Tęsti judėjimą nekeičiant krypties"], correct: 1,
-                explanation: "Vairuotojai privalo duoti kelią transporto priemonėms su įjungtais mėlynais ir raudonais švyturėliais, sustodami dešinėje."
+                text: "Ką privalo daryti vairuotojas, pamatęs artėjančią transporto priemonę su įjungtais mėlynais ir raudonais švyturėliais bei specialiaisiais garsiniais signalais?",
+                svg: null, options: ["Padidinti greitį ir kuo skubiau atlaisvinti eismo juostą", "Sustoti dešiniajame kelkraštyje, o jeigu jo nėra – prie važiuojamosios dalies krašto", "Tęsti judėjimą nekeičiant krypties ir važiavimo greičio"], correct: 1,
+                explanation: "Pagal KET 12 punktą: Vairuotojai privalo duoti kelią transporto priemonėms su įjungtais mėlynais ir raudonais švyturėliais, sustodami dešinėje kelio pusėje."
             },
             {
-                text: "Ką reiškia horizontali balta ištisinė ženklinimo linija kelių eisme?",
-                svg: null, options: ["Sustojimo vietą sankryžoje", "Liniją, kurią kirsti griežtai draudžiama, išskyrus specialius KET nurodytus atvejus", "Ji skirta tik pėsčiųjų eismui riboti"], correct: 1,
-                explanation: "Ištisinę ženklinimo liniją kirsti draudžiama. Ji skiria priešpriešinių krypčių eismo juostas arba žymi važiuojamosios dalies kraštus."
+                text: "Ką eisme žymi horizontalaus ženklinimo balta ištisinė ženklinimo linija?",
+                svg: null, options: ["Nurodo vietą, kur vairuotojas privalo atlikti posūkį", "Skiria priešingų krypčių eismo srautus arba žymi eismo juostos kraštus; ją kirsti draudžiama", "Ji skirta tik pėsčiųjų judėjimo zonai išskirti"], correct: 1,
+                explanation: "Pagal KET priedą (Horiz. ženklinimas 1.1): Baltą ištisinę liniją kirsti draudžiama. Ji skiria priešingų krypčių transporto srautus."
             },
             {
-                text: "Ar leidžiama važiuoti atbulomis automagistralėse ar greitkeliuose?",
-                svg: null, options: ["Draudžiama", "Leidžiama, jei netyčia praleidote posūkį", "Leidžiama tik kelkraščiu"], correct: 0,
-                explanation: "Automagistralėse ir greitkeliuose suktis atgal, įvažiuoti į skiriamąją juostą bei važiuoti atbulomis yra griežtai draudžiama."
+                text: "Ar leidžiama transporto priemonėms važiuoti atbulomis automagistralėse ar greitkeliuose?",
+                svg: null, options: ["Draudžiama", "Leidžiama, jeigu nėra sukeliama kliūtis kitam eismui", "Leidžiama tik kietą dangą turinčiu kelkraščiu"], correct: 0,
+                explanation: "Pagal KET 170.3 punktą: Automagistralėse ir greitkeliuose transporto priemonėms suktis atgal arba važiuoti atbulomis yra griežtai draudžiama."
             },
             {
-                text: "Nuo kokio amžiaus asmuo gali įgyti teisę vairuoti B kategorijos transporto priemones (laikyti praktinį egzaminą Regitroje)?",
+                text: "Nuo kokio amžiaus asmuo gali įgyti teisę vairuoti B kategorijos transporto priemones (laikyti praktinį egzaminą VĮ Regitra)?",
                 svg: null, options: ["Nuo 16 metų", "Nuo 17 metų", "Nuo 18 metų"], correct: 2,
-                explanation: "Teisė vairuoti B kategorijos lengvuosius automobilius suteikiama asmenims nuo 18 metų."
+                explanation: "Pagal LR SEAKĮ: Teisė vairuoti B kategorijos transporto priemones (lengvuosius automobilius) suteikiama asmenims nuo 18 metų."
             },
             {
-                text: "Ką daryti, jei tamsiu paros metu jus akina priešpriešiais važiuojančio automobilio tolimosios šviesos?",
-                svg: null, options: ["Įjungti savo tolimąsias šviesas ir akinti atgal", "Įjungti avarinę šviesos signalizaciją, nesikeičiant eismo juostos sumažinti greitį ir prireikus sustoti", "Nukreipti automobilį į šalikelę"], correct: 1,
-                explanation: "Jei esate akimamas, KET įpareigoja įjungti avarinį signalą, lėtinti greitį nekeičiant juostos ir visiškai sustoti."
+                text: "Kaip privalo pasielgti vairuotojas, jeigu tamsiu paros metu jį akina priešpriešiais važiuojančios transporto priemonės tolimosios šviesos?",
+                svg: null, options: ["Įjungti savo transporto priemonės tolimąsias šviesas", "Įjungti avarinę šviesos signalizaciją, nesikeičiant eismo juostos sumažinti greitį ir, prireikus, sustoti", "Nukreipti transporto priemonę link artimiausio dešiniojo kelkraščio stabdant"], correct: 1,
+                explanation: "Pagal KET 101 punktą: Akis akinant vairuotojas privalo įjungti avarinę šviesos signalizaciją, lėtinti greitį nekeičiant juostos ir prireikus sustoti."
             },
             {
                 text: "Kas laikoma „Sustojimu“ pagal Lietuvos Respublikos KET?",
-                svg: null, options: ["Transporto priemonės sustabdymas ne ilgesniam laikui, nei reikia keleiviams įlaipinti ar kroviniui krauti (iki 5 min)", "Bet koks automobilio stovėjimas ilgiau nei valandą", "Variklio išjungimas nakties metu"], correct: 0,
-                explanation: "Sustojimas – transporto priemonės sustabdymas ne ilgesniam laikui, nei reikia keleiviams įlaipinti (išlaipinti) arba kroviniams krauti."
+                svg: null, options: ["Transporto priemonės sustabdymas ne ilgesniam laikui, nei reikia keleiviams įlaipinti (išlaipinti) arba kroviniui krauti (iki 5 min.)", "Bet koks automobilio stovėjimas be vairuotojo ilgiau nei 15 minučių", "Transporto priemonės variklio išjungimas nakties metu stovėjimo aikštelėje"], correct: 0,
+                explanation: "Pagal KET 3 punktą: Sustojimas – transporto priemonės sustabdymas ne ilgesniam laikui, nei reikia keleiviams įlaipinti (išlaipinti) arba transporto priemonei krauti."
             },
             {
                 text: "Ar leidžiama lenkti transporto priemonę, kuri pati tuo metu lenkia kitą priekyje važiuojantį objektą (dvigubas lenkimas)?",
-                svg: null, options: ["Leidžiama, jei kelias yra pakankamai platus", "Draudžiama lenkti transporto priemonę, kuri pati lenkia", "Leidžiama tik šviesiu paros metu"], correct: 1,
-                explanation: "Draudžiama lenkti transporto priemonę, kuri pati lenkia, nes tai sukelia itin didelį avarinį pavojų kelio ruože."
+                svg: null, options: ["Leidžiama, jeigu kelio matomumas yra visiškai pakankamas", "Draudžiama", "Leidžiama tik šviesiu paros metu už gyvenvietės ribų"], correct: 1,
+                explanation: "Pagal KET 141.1 punktą: Vairuotojui draudžiama lenkti transporto priemonę, kuri pati lenkia, apsisuka arba suka į kairę."
             },
             {
                 text: "Kokiu minimaliu atstumu iki geležinkelio pervažos pradedamas taikyti draudimas lenkti kitas transporto priemones?",
-                svg: null, options: ["Likus mažiau kaip 50 metrų", "Likus mažiau kaip 100 metrų", "Draudžiama lenkti tik pačioje pervažoje"], correct: 1,
-                explanation: "Geležinkelio pervažose ir likus mažiau kaip 100 metrų atstumu iki jų lenkti kitas transporto priemones draudžiama."
+                svg: null, options: ["Likus mažiau kaip 50 metrų atstumu", "Likus mažiau kaip 100 metrų atstumu", "Lenkti draudžiama tik pačios geležinkelio pervažos ribose"], correct: 1,
+                explanation: "Pagal KET 141.4 punktą: Lenkti transporto priemones draudžiama geležinkelio pervažose ir likus mažiau kaip 100 metrų atstumu iki jų."
             },
             {
                 text: "Ką reiškia prie raudono šviesoforo signalo pritvirtinta lentelė su žalia rodykle, nukreipta į dešinę?",
-                svg: null, options: ["Suteikia pirmenybę sukti į dešinę nesustojus", "Leidžia vairuotojams sukti į dešinę ir degant draudžiamam šviesoforo signalui, tačiau privaloma duoti kelią kitiems", "Rodyklė skirta tik autobusams"], correct: 1,
-                explanation: "Žalia rodyklė lentelėje leidžia sukti į dešinę degant raudonam signalui, tačiau vairuotojas privalo užtikrinti saugumą ir praleisti kitus."
+                svg: null, options: ["Suteikia važiavimo pirmenybę sukti į dešinę neatliekant sustojimo", "Leidžia vairuotojams sukti į dešinę ir degant draudžiamam šviesoforo signalui, tačiau privaloma duoti kelią kitiems eismo dalyviams", "Ši rodyklė galioja išskirtinai tik maršrutiniam transportui"], correct: 1,
+                explanation: "Pagal KET 76 punktą: Lentelė su žalia rodykle leidžia sukti į dešinę degant raudonam signalui, tačiau vairuotojas privalo užtikrinti saugumą ir praleisti kitus eismo dalyvius."
             },
             {
-                text: "Ar privaloma įjungti posūkio signalą įvažiuojant į žiedinę sankryžą?",
-                svg: null, options: ["Privaloma įjungti dešinį posūkį", "Privaloma įjungti kairį posūkį", "Įvažiuojant į žiedą posūkio signalas nerodomas, jis rodomas tik išvažiuojant iš jo"], correct: 2,
-                explanation: "Įvažiuojant į žiedinę sankryžą posūkio rodyti nereikia. Posūkio signalas privalomai rodomas tik atliekant manevrą pačiame žiede arba išvažiuojant iš jo."
+                text: "Ar privaloma rodyti įspėjamąjį posūkio signalą įvažiuojant į žiedinę sankryžą?",
+                svg: null, options: ["Privaloma įjungti dešiniojo posūkio signalą", "Privaloma įjungti kairiojo posūkio signalą", "Įvažiuojant į žiedinę sankryžą posūkio signalas nerodomas, jis privalomai rodomas tik išvažiuojant iš jos"], correct: 2,
+                explanation: "Pagal KET 91-93 punktus: Įvažiuojant į žiedinę sankryžą eismas vyksta ratu, kryptis nesikeičia, todėl posūkio rodyti nereikia. Signalas rodomas tik persirikiuojant žiede arba išvažiuojant iš jo."
             }
         ];
 
